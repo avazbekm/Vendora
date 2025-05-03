@@ -1,0 +1,6 @@
+@Vendora.WebAPI_HostAddress = http://localhost:5125
+
+GET {{Vendora.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
