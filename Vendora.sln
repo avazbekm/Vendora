@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{0D81BE4E-CF19-45A9-9989-0CBD2E6010AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "presentation", "presentation", "{74FE67DA-21EF-4830-9A72-E44370C85FB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vendora.Domain", "src\backend\Vendora.Domain\Vendora.Domain.csproj", "{5A1FCF7D-252B-4092-BF9E-E4FF610FAA2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A1FCF7D-252B-4092-BF9E-E4FF610FAA2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A1FCF7D-252B-4092-BF9E-E4FF610FAA2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A1FCF7D-252B-4092-BF9E-E4FF610FAA2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A1FCF7D-252B-4092-BF9E-E4FF610FAA2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0D81BE4E-CF19-45A9-9989-0CBD2E6010AA} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{74FE67DA-21EF-4830-9A72-E44370C85FB9} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{5A1FCF7D-252B-4092-BF9E-E4FF610FAA2E} = {0D81BE4E-CF19-45A9-9989-0CBD2E6010AA}
+	EndGlobalSection
+EndGlobal
