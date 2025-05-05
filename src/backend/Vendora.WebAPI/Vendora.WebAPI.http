@@ -1,6 +1,6 @@
-@Vendora.WebAPI_HostAddress = http://localhost:5125
+@Vendora.WebAPI_HostAddress = http://localhost:5155
 
-GET {{Vendora.WebAPI_HostAddress}}/weatherforecast/
+GET {{Vendora.WebAPI_HostAddress}}/users/getall
 Accept: application/json
 
 ###
