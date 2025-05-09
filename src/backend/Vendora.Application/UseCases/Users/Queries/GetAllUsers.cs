@@ -1,9 +1,9 @@
 ﻿namespace Vendora.Application.UseCases.Users.Queries;
 
-using AutoMapper;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 using Vendora.Application.Common;
+using Microsoft.EntityFrameworkCore;
 using Vendora.Application.Users.Commands.CreateUser;
 
 public record GetAllUsersQuery : IRequest<IEnumerable<UserResultDto>>;
