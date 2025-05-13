@@ -2,6 +2,7 @@
 
 using AutoMapper;
 using Vendora.Application.Users.Commands.CreateUser;
+using Vendora.Application.Users.Commands.UpdateUser;
 using Vendora.Domain.Entities;
 
 public class UserMappingProfile : Profile
