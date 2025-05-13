@@ -1,4 +1,4 @@
-﻿namespace Services.DTOs.Enums;
+﻿namespace ApiServices.DTOs.Enums;
 
 public enum Gender
 {

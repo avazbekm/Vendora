@@ -1,8 +1,7 @@
 ﻿namespace Vendora.Application;
 
-using System.Reflection;
-using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 public static class DependencyInjectionExtensions
 {

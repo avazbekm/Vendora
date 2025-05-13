@@ -65,7 +65,7 @@
                         Command="{Binding LoginCommand}"
                         md:ButtonAssist.CornerRadius="10"
                         Style="{DynamicResource MaterialDesignPaperSecondaryButton}"
-                        MaxWidth="300" Click="btnEnter_Click">
+                        MaxWidth="300" Click="BtnEnter_Click">
 
                 </Button>
             </StackPanel>
