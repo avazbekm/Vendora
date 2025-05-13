@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Vendora.Application.Common;
-using Vendora.Infrastructure.Persistence.EntityFramework;
+using Vendora.Infrastructure.Persistence.EntityFramwork;
 
 public static class DependencyInjection
 {

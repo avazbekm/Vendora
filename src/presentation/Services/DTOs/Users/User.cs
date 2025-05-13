@@ -1,8 +1,8 @@
-﻿using Vendora.Domain.Enums;
+﻿using Services.DTOs.Enums;
 
-namespace Vendora.Application.Users.Commands.CreateUser;
+namespace Services.DTOs.Users;
 
-public class UserResultDto
+public class User
 {
     public long Id { get; set; }
     public string FirstName { get; set; } = string.Empty;
@@ -14,7 +14,7 @@ public class UserResultDto
 
     public string PasportSeria { get; set; } = string.Empty;
     public string Phone { get; set; } = string.Empty;
-    public DateTimeOffset? DateOfBirth { get; set; }
+    public DateTimeOffset DateOfBirth { get; set; }
     public Gender Gender { get; set; }
     public long RoleId { get; set; }
     public long? PhotoId { get; set; }

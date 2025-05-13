@@ -9,7 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Pages\" />
+    <Folder Include="Resources\Styles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
   </ItemGroup>
 
 </Project>

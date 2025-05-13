@@ -13,7 +13,7 @@ public class GetAllUsersQueryHandler(IAppDbContext dbContext, IMapper mapper)
 {
     public async Task<IEnumerable<UserResultDto>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
     {
-        var users = await dbContext.Users
+        var users = await dbContext.Users.Where(user=>user.IsDeleted.Equals(false))
             .ToListAsync(cancellationToken: cancellationToken);
 
         return mapper.Map<IEnumerable<UserResultDto>>(users);
