@@ -23,17 +23,17 @@ public class UpdateCategoryCommandHandler(IAppDbContext context, IMapper mapper)
 {
     public async Task<CategoryResultDto> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
     {
-        var Category = await context.Categories
+        var category = await context.Categories
             .FirstOrDefaultAsync(Category
                 => Category.Id.Equals(request.Id), cancellationToken);
 
-        if (Category == null)
+        if (category == null)
             return default!;
 
-        var mappedCategory = mapper.Map(request, Category);
+        var mappedCategory = mapper.Map(request, category);
         mappedCategory.UpdatedAt = DateTimeOffset.UtcNow;
 
-        context.Categories.Update(Category);
+        context.Categories.Update(category);
 
         await context.SaveChangesAsync(cancellationToken);
 
