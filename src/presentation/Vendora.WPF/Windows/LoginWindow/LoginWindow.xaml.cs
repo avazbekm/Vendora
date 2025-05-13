@@ -18,7 +18,7 @@ public partial class LoginWindow : Window
 
     }
 
-    private void btnEnter_Click(object sender, RoutedEventArgs e)
+    private void BtnEnter_Click(object sender, RoutedEventArgs e)
     {
 
     }

@@ -9,13 +9,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Pages\" />
-    <Folder Include="Resources\Styles\" />
+    <Compile Remove="Pages\**" />
+    <Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="Pages\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Pages\**" />
+    <None Remove="Resources\**" />
+    <Page Remove="Pages\**" />
+    <Page Remove="Resources\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ApiServices\ApiServices.csproj" />
   </ItemGroup>
 
 </Project>

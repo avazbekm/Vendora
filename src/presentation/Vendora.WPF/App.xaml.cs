@@ -1,14 +1,32 @@
-﻿using System.Configuration;
-using System.Data;
+﻿namespace Vendora.WPF;
+
+using ApiServices.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
+using Vendora.WPF.ViewModels;
 
-namespace Vendora.WPF
+public partial class App : Application
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
-    {
-    }
+    public IServiceProvider ServiceProvider { get; private set; } = default!;
 
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        base.OnStartup(e);
+
+        var services = new ServiceCollection();
+
+        // ApiService’dan API sozlamalarini olish
+        ApiService.ConfigureServices(services, "https://localhost:7088/");
+
+        // WPF xizmatlarini qo‘shish
+        services.AddSingleton<MainViewModel>();
+
+        ServiceProvider = services.BuildServiceProvider();
+
+        var mainWindow = new MainWindow
+        {
+            DataContext = ServiceProvider.GetService<MainViewModel>()
+        };
+        mainWindow.Show();
+    }
 }
