@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Vendora.Application.Common;
+using Vendora.Application.Exceptions;
 using Vendora.Application.UseCases.Categories.DTOs;
 using Vendora.Domain.Entities;
 
@@ -22,6 +24,9 @@ public class CreateCategoryCommandHandler(IAppDbContext context, IMapper mapper)
 {
     public async Task<CategoryResultDto> Handle(CreateCategoryCommand command, CancellationToken cancellationToken)
     {
+        var existCategory = await context.Categories.FirstOrDefaultAsync(c => c.Name.Equals(command.Name),cancellationToken);
+        if(existCategory != null) 
+             throw new AlreadyExistException($"Bu {command.Name} nom bilan kategoriya mavjud");
 
         var Category = mapper.Map<Category>(command);
 
