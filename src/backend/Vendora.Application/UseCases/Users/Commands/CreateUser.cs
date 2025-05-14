@@ -7,6 +7,8 @@ using Vendora.Domain.Enums;
 using System.Threading.Tasks;
 using Vendora.Domain.Entities;
 using Vendora.Application.Common;
+using Microsoft.EntityFrameworkCore;
+using Vendora.Application.Exceptions;
 
 public record CreateUserCommand : IRequest<UserResultDto>
 {
@@ -45,6 +47,12 @@ public class CreateUserCommandHandler(IAppDbContext context, IMapper mapper)
 {
     public async Task<UserResultDto> Handle(CreateUserCommand command, CancellationToken cancellationToken)
     {
+        var existUser = await context.Users.FirstOrDefaultAsync(u =>
+        u.Phone.Equals(command.Phone) ||
+        u.Login.Equals(command.Login) ||
+        u.PasportSeria.Equals(command.PasportSeria));
+        if (existUser != null)
+            throw new AlreadyExistException($"Bu {command.Phone} nomer yoki {command.Login} login yoki {command.PasportSeria} pasport seria mavjud.");
 
         var user = mapper.Map<User>(command);
 
