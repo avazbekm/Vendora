@@ -1,9 +1,9 @@
 ﻿namespace ApiServices.Services;
 
-using Microsoft.Extensions.DependencyInjection;
 using Refit;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Microsoft.Extensions.DependencyInjection;
 
 public static class ApiService
 {
