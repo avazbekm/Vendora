@@ -1,9 +1,9 @@
 ﻿namespace Vendora.WPF;
 
-using ApiServices.Services;
-using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
+using ApiServices.Services;
 using Vendora.WPF.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 
 public partial class App : Application
 {
