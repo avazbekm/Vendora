@@ -4,6 +4,7 @@ using System.Windows;
 using ApiServices.Services;
 using Vendora.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Vendora.WPF.Windows.LoginWindow;
 
 public partial class App : Application
 {
@@ -20,13 +21,27 @@ public partial class App : Application
 
         // WPF xizmatlarini qo‘shish
         services.AddSingleton<MainViewModel>();
+        services.AddSingleton<LoginViewModel>();
 
         ServiceProvider = services.BuildServiceProvider();
 
-        var mainWindow = new MainWindow
+        var loginWindow = new LoginWindow2
         {
-            DataContext = ServiceProvider.GetService<MainViewModel>()
+            DataContext = ServiceProvider.GetService<LoginViewModel>()
         };
-        mainWindow.Show();
+        loginWindow.Show();
+        loginWindow.IsVisibleChanged += (s, e) =>
+        {
+            if (loginWindow.IsVisible == false && loginWindow.IsLoaded)
+            {
+                var mainWindow = new MainWindow
+                {
+                    DataContext = ServiceProvider.GetService<MainViewModel>()
+                };
+                mainWindow.Show();
+                loginWindow.Close();
+            }
+        };
+
     }
 }
