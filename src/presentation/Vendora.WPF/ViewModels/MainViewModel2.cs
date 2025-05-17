@@ -35,7 +35,7 @@ namespace Vendora.WPF.ViewModels
             {
 
                 CurrentAccountUser.Username = user.Username;
-                CurrentAccountUser.DisplayName = $"Welcome {user.Name} {user.LastName} ;)";
+                CurrentAccountUser.DisplayName = $"{user.Name} {user.LastName}";
                 CurrentAccountUser.ProfilePicture = null;
             }
             else
