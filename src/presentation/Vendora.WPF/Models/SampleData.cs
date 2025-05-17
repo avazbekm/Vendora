@@ -14,9 +14,9 @@ namespace Vendora.WPF.Models
         {
             Id = Guid.NewGuid().ToString(),
             Username = "admin",
-            Password = "admin123",
-            Name = "Ivan",
-            LastName = "Petrov",
+            Password = "123",
+            Name = "Avazbek",
+            LastName = "Siddiqov",
             Email = "admin@vendora.com"
         },
         new UserModel
