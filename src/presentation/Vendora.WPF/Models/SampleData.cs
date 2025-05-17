@@ -38,5 +38,10 @@ namespace Vendora.WPF.Models
                 u.Username.Equals(username, StringComparison.OrdinalIgnoreCase) &&
                 u.Password == password);
         }
+        public static UserModel GetByUserName(string username)
+        {
+            return SampleUsers.Users.FirstOrDefault(u =>
+                u.Username.Equals(username, StringComparison.OrdinalIgnoreCase));
+        }
     }
 }

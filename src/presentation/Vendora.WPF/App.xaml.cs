@@ -20,7 +20,7 @@ public partial class App : Application
         ApiService.ConfigureServices(services, "https://localhost:7088/");
 
         // WPF xizmatlarini qo‘shish
-        services.AddSingleton<MainViewModel>();
+        services.AddSingleton<MainViewModel2>();
         services.AddSingleton<LoginViewModel>();
 
         ServiceProvider = services.BuildServiceProvider();
@@ -34,11 +34,11 @@ public partial class App : Application
         {
             if (loginWindow.IsVisible == false && loginWindow.IsLoaded)
             {
-                var mainWindow = new MainWindow
+                var mainWindow2 = new MainWindow2
                 {
-                    DataContext = ServiceProvider.GetService<MainViewModel>()
+                    DataContext = ServiceProvider.GetService<MainViewModel2>()
                 };
-                mainWindow.Show();
+                mainWindow2.Show();
                 loginWindow.Close();
             }
         };
