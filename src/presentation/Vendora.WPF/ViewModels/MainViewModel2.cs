@@ -1,12 +1,6 @@
 ﻿using FontAwesome.Sharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Vendora.WPF.Models;
-using System.Globalization;
 using System.Windows.Input;
+using Vendora.WPF.Models;
 
 namespace Vendora.WPF.ViewModels
 {
@@ -29,16 +23,16 @@ namespace Vendora.WPF.ViewModels
         }
         // Properties
         public ViewModelBase CurrentChildView
-        { 
-            get => _currentChildView; 
-            set 
+        {
+            get => _currentChildView;
+            set
             {
                 _currentChildView = value;
                 OnPropertyChanged(nameof(CurrentChildView));
             }
         }
-        public string Caption 
-        { 
+        public string Caption
+        {
             get => _caption;
             set
             {
@@ -68,7 +62,7 @@ namespace Vendora.WPF.ViewModels
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
             ShowCustomViewCommand = new ViewModelCommand(ExecuteShowCustomViewCommand);
             // Set default view
-            ExecuteShowHomeViewCommand(null);
+            ExecuteShowHomeViewCommand(null!);
         }
 
 
@@ -93,7 +87,7 @@ namespace Vendora.WPF.ViewModels
 
                 CurrentAccountUser.Username = user.Username;
                 CurrentAccountUser.DisplayName = $"{user.Name} {user.LastName} {user.Email}";
-                CurrentAccountUser.ProfilePicture = null;
+                CurrentAccountUser.ProfilePicture = null!;
             }
             else
             {

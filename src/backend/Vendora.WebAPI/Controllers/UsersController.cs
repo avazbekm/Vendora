@@ -2,11 +2,11 @@ namespace Vendora.WebAPI.Controllers;
 
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Vendora.Application.Users.Queries;
 using Vendora.Application.UseCases.Users.Queries;
 using Vendora.Application.Users.Commands.CreateUser;
 using Vendora.Application.Users.Commands.DeleteUser;
 using Vendora.Application.Users.Commands.UpdateUser;
+using Vendora.Application.Users.Queries;
 
 public class UsersController(ISender sender) : BaseController
 {

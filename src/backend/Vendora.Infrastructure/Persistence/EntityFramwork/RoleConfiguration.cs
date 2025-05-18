@@ -1,7 +1,7 @@
 ﻿namespace Vendora.Infrastructure.Persistence.EntityFramwork;
 
-using Microsoft.EntityFrameworkCore;
 using global::Vendora.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 public class RoleConfiguration : IEntityTypeConfiguration<Role>

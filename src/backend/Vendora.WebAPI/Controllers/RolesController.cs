@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Vendora.Application.UseCases.Roles.Queries;
 using Vendora.Application.UseCases.Roles.Commands;
 using Vendora.Application.UseCases.Roles.Commands.DeleteRole;
+using Vendora.Application.UseCases.Roles.Queries;
 
 namespace Vendora.WebAPI.Controllers;
 
