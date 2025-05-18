@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="UseCases\Products\Validations\" />
     <Folder Include="UseCases\Roles\Validations\" />
   </ItemGroup>
 

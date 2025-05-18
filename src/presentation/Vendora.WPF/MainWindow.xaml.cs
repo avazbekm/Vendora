@@ -10,9 +10,8 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
-    private async void LoadUsers_Click(object sender, RoutedEventArgs e)
+    private void Button_Click(object sender, RoutedEventArgs e)
     {
-        if (DataContext is MainViewModel viewModel)
-            await viewModel.LoadUsersAsync();
+        this.Close();
     }
 }
