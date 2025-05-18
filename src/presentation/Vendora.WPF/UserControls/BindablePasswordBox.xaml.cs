@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Vendora.WPF.CustomControls
+namespace Vendora.WPF.UserControls
 {
     /// <summary>
     /// Логика взаимодействия для BindablePasswordBox.xaml
