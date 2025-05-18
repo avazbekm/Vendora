@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel="clr-namespace:Vendora.WPF.ViewModels" 
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" 
-        xmlns:local="clr-namespace:Vendora.WPF.CustomControls"
+        xmlns:local="clr-namespace:Vendora.WPF.UserControls"
         mc:Ignorable="d"
         Title="MainWindow2" Height="700" Width="1300"
         WindowStartupLocation="CenterScreen"
