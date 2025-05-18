@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Vendora.Application.UseCases.Products.Queries;
 using Vendora.Application.UseCases.Products.Commands;
+using Vendora.Application.UseCases.Products.Queries;
 
 namespace Vendora.WebAPI.Controllers;
 

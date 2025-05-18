@@ -4,7 +4,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
-using Vendora.Application.Common;
+using Vendora.Application.Interfaces;
 
 public record DeleteUserCommand : IRequest<bool>
 {

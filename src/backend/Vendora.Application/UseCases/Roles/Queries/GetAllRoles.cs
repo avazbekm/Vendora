@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Vendora.Application.Common;
+using Vendora.Application.Interfaces;
 using Vendora.Application.UseCases.Roles.DTOs;
 
 namespace Vendora.Application.UseCases.Roles.Queries;

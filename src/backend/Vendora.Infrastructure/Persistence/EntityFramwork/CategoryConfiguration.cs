@@ -1,6 +1,6 @@
-﻿using Vendora.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Vendora.Domain.Entities;
 
 namespace Vendora.Infrastructure.Persistence.EntityFramwork;
 

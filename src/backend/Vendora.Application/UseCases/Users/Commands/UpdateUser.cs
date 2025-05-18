@@ -5,7 +5,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
-using Vendora.Application.Common;
+using Vendora.Application.Interfaces;
 using Vendora.Application.Users.Commands.CreateUser;
 using Vendora.Domain.Enums;
 

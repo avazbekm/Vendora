@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Vendora.Application.Common;
+using Vendora.Application.Interfaces;
 
 
 namespace Vendora.Application.UseCases.Roles.Commands.DeleteRole;

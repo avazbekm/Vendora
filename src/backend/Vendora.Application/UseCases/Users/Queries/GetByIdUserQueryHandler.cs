@@ -3,8 +3,8 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Vendora.Application.Common;
 using Vendora.Application.Exceptions;
+using Vendora.Application.Interfaces;
 using Vendora.Application.Users.Commands.CreateUser;
 
 public record GetByIdUserQuery(long Id) : IRequest<UserResultDto>;

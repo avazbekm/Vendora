@@ -1,6 +1,4 @@
-﻿using Vendora.Domain.Commons;
-
-namespace Vendora.Domain.Entities;
+﻿namespace Vendora.Domain.Entities;
 
 using Vendora.Domain.Commons;
 
