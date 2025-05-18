@@ -1,8 +1,8 @@
-﻿using MediatR;
-using AutoMapper;
-using Vendora.Domain.Entities;
+﻿using AutoMapper;
+using MediatR;
 using Vendora.Application.Common;
 using Vendora.Application.UseCases.Roles.DTOs;
+using Vendora.Domain.Entities;
 
 namespace Vendora.Application.UseCases.Roles.Commands;
 

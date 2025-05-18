@@ -1,8 +1,8 @@
 ﻿namespace Vendora.Infrastructure.Persistence.EntityFramwork;
 
-using Vendora.Domain.Entities;
-using Vendora.Application.Common;
 using Microsoft.EntityFrameworkCore;
+using Vendora.Application.Common;
+using Vendora.Domain.Entities;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options)
     : DbContext(options), IAppDbContext

@@ -1,9 +1,9 @@
 ﻿namespace Vendora.Application.Users.Queries;
 
-using MediatR;
 using AutoMapper;
-using Vendora.Application.Common;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Vendora.Application.Common;
 using Vendora.Application.Exceptions;
 using Vendora.Application.Users.Commands.CreateUser;
 

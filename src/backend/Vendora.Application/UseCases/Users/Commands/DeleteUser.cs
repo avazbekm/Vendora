@@ -1,9 +1,9 @@
 ﻿namespace Vendora.Application.Users.Commands.DeleteUser;
 
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using Vendora.Application.Common;
 
 public record DeleteUserCommand : IRequest<bool>

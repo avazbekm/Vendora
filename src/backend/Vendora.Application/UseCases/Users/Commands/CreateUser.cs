@@ -1,12 +1,12 @@
 ﻿namespace Vendora.Application.Users.Commands.CreateUser;
 
-using MediatR;
 using AutoMapper;
+using MediatR;
 using System.Threading;
-using Vendora.Domain.Enums;
 using System.Threading.Tasks;
-using Vendora.Domain.Entities;
 using Vendora.Application.Common;
+using Vendora.Domain.Entities;
+using Vendora.Domain.Enums;
 
 public record CreateUserCommand : IRequest<UserResultDto>
 {

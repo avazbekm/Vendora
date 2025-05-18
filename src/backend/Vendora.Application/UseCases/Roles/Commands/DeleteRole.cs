@@ -1,11 +1,11 @@
 ﻿using MediatR;
-using Vendora.Application.Common;
 using Microsoft.EntityFrameworkCore;
+using Vendora.Application.Common;
 
 
 namespace Vendora.Application.UseCases.Roles.Commands.DeleteRole;
 
-public record DeleteRoleCommand: IRequest<bool>
+public record DeleteRoleCommand : IRequest<bool>
 {
     public DeleteRoleCommand(DeleteRoleCommand command)
     {
