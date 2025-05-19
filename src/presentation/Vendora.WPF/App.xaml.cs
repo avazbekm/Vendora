@@ -4,6 +4,7 @@ using System.Windows;
 using ApiServices.Services;
 using Vendora.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Vendora.WPF.Windows.Users;
 using Vendora.WPF.Windows.LoginWindow;
 
 public partial class App : Application
@@ -25,9 +26,9 @@ public partial class App : Application
 
         ServiceProvider = services.BuildServiceProvider();
 
-        var loginWindow = new LoginWindow2
+        var mainWindow = new MainWindow
         {
-            DataContext = ServiceProvider.GetService<LoginViewModel>()
+            DataContext = ServiceProvider.GetService<MainViewModel>()
         };
         loginWindow.Show();
         loginWindow.IsVisibleChanged += (s, e) =>

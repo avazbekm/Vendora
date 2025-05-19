@@ -5,6 +5,9 @@
     <SolidColorBrush x:Key="SecondaryBackground" Color="#1C3426"/>
     <SolidColorBrush x:Key="SelectedBackground" Color="Snow"/>
     <SolidColorBrush x:Key="OtherBackground" Color="#17B431"/>
+    <SolidColorBrush x:Key="AsGrayBackground" Color="#F3EEEE"/>
+    <SolidColorBrush x:Key="DarkRedBackground" Color="DarkRed"/>
+
 
 
     <SolidColorBrush x:Key="PrimaryBorderColor" Color="#DBEEDA"/>
@@ -13,6 +16,9 @@
 
     <SolidColorBrush x:Key="PrimaryTextColor" Color="Black" />
     <SolidColorBrush x:Key="SecondaryTextColor" Color="Snow" />
+    <SolidColorBrush x:Key="SelectedTextColor" Color="Red" />
+
 
     <SolidColorBrush x:Key="PrimaryCursorColor" Color="Snow" />
+    <SolidColorBrush x:Key="SecondCursorColor" Color="Black" />
 </ResourceDictionary>

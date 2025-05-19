@@ -23,20 +23,29 @@ public record CreateUserCommand : IRequest<UserResultDto>
         Gender = command.Gender;
         RoleId = command.RoleId;
         PhotoId = command.PhotoId;
+        DateOfIssue = command.DateOfIssue;
+        DateOfExpiry = command.DateOfExpiry;
+        Address = command.Address;
+        JShShIR = command.JShShIR;
     }
 
     public string FirstName { get; set; } = string.Empty;
-    public string? LastName { get; set; }
+    public string LastName { get; set; } = string.Empty;
     public string? Patronomyc { get; set; } = string.Empty;
 
     public string Login { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
 
     public string? PasportSeria { get; set; } = string.Empty;
+    public DateTimeOffset? DateOfIssue { get; set; }  // pasport berilgan sana
+    public DateTimeOffset? DateOfExpiry { get; set; } // Amal qilish muddati
+
     public string Phone { get; set; } = string.Empty;
     public DateTimeOffset? DateOfBirth { get; set; }
     public Gender Gender { get; set; }
     public long RoleId { get; set; }
+    public string? Address { get; set; }
+    public string? JShShIR { get; set; }
     public long? PhotoId { get; set; }
 }
 
@@ -47,6 +56,10 @@ public class CreateUserCommandHandler(IAppDbContext context, IMapper mapper)
     {
 
         var user = mapper.Map<User>(command);
+        user.CreatedAt = DateTimeOffset.UtcNow;
+        // bcrypt bilan hashlanyapti
+        var hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
+        user.Password= hashedPassword;
 
         await context.Users.AddAsync(user, cancellationToken);
 

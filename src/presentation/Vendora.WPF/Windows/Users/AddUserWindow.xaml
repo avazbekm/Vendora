@@ -1,0 +1,238 @@
+﻿<Window x:Class="Vendora.WPF.Windows.Users.AddUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vendora.WPF.Windows.Users"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="AddUserWindow" Height="480" Width="800" 
+        WindowStartupLocation="CenterScreen" 
+        Background="Transparent"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        WindowStyle="None">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Panel -->
+        <Border x:Name="LeftPanel" Grid.Column="0" Background="{DynamicResource PrimaryBackground}" CornerRadius="30,0,0,30">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Ellipse x:Name="UserAvatarEllipse" Margin="10 10 10 20" Width="150" Height="150" StrokeThickness="0">
+                    <Ellipse.Fill>
+                        <ImageBrush x:Name="AvatarImageBrush" ImageSource="/Resources/Images/avatar2.jpg" Stretch="UniformToFill"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Rasm joylash" FontSize="15" Padding="50 5 10 5" Foreground="{DynamicResource PrimaryTextColor}"/>
+                    <Button Content=". . ." Click="UploadImage_Click" Foreground="{DynamicResource PrimaryTextColor}"
+                        Background="{DynamicResource PrimaryBackground}" 
+                        BorderBrush="{DynamicResource PrimaryBackground}"/>
+                </StackPanel>
+
+
+                <TextBlock Foreground="{DynamicResource PrimaryTextColor}" Text="Foydalanuvchi qo'shish" FontSize="20" FontWeight="Bold" Margin="0,20,0,10" TextAlignment="Center"/>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button x:Name="btnRight" Content="🔜" Padding="0" Width="40" Height="40" BorderThickness="0" Margin="10,10,0,0" Background="{DynamicResource SelectedBackground}" Foreground="{DynamicResource PrimaryTextColor}" FontSize="20" FontWeight="Bold" Click="btnRight_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Right Panel -->
+        <Border x:Name="RightPanel" Grid.Column="1" CornerRadius="0 30 30 0" Background="{DynamicResource SelectedBackground}">
+            <StackPanel  Margin="40" Background="Transparent" >
+                    <!-- Familiya -->
+                    <StackPanel x:Name="spLastname" Orientation="Horizontal" Margin="0,10">
+                        <TextBlock x:Name="tbcLastName" Width="120" VerticalAlignment="Center">
+                            <Run Text="Familiya" FontSize="15" />
+                            <Run Text="*" Foreground="{DynamicResource SelectedTextColor }" FontSize="16"/>
+                        </TextBlock>
+                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                            <TextBox x:Name="txtLastName" KeyDown="TextBox_KeyDown" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 3" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent"/>
+                        </Border>
+                    </StackPanel>
+
+                    <!-- Ismi -->
+                    <StackPanel x:Name="spFirstName" Orientation="Horizontal" Margin="0,10">
+                        <TextBlock x:Name="tbcFirstname" Width="120" VerticalAlignment="Center">
+                            <Run Text="Ismi" FontSize="15"/>
+                            <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16" />
+                        </TextBlock>
+                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                            <TextBox x:Name="txtFirstName" KeyDown="TextBox_KeyDown" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 3" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent"/>
+                        </Border>
+                    </StackPanel>
+
+                    <!-- Jinsi -->
+                    <StackPanel x:Name="spGender" Orientation="Horizontal" Margin="0,10">
+                        <TextBlock x:Name="tbcGender" Width="120" VerticalAlignment="Center">
+                            <Run Text="Jinsi" FontSize="15" />
+                            <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16" />
+                        </TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton x:Name="rbMale" KeyDown="TextBox_KeyDown" Content="Erkak" Margin="0,0,10,0" GroupName="Gender"/>
+                            <RadioButton x:Name="rbFemale" KeyDown="TextBox_KeyDown" Content="Ayol" GroupName="Gender"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Lavozim -->
+                    <StackPanel x:Name="spRole" Orientation="Horizontal" Margin="0,10">
+                        <TextBlock x:Name="tbcRole" Width="120" VerticalAlignment="Center">
+                        <Run Text="Lavozim" FontSize="15"/>
+                        <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16"/>
+                        </TextBlock>
+                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}" Width="200">
+                            <ComboBox x:Name="cbPosition" KeyDown="TextBox_KeyDown" Width="195" Height="30" GotFocus="cbPosition_GotFocus" SelectionChanged="cbPosition_SelectionChanged" Background="Transparent" Padding="0 0 5 0" BorderThickness="0"/>
+                        </Border>
+                    </StackPanel>
+                <!-- Telefon -->
+                    <StackPanel x:Name="spPhone" Orientation="Horizontal" Margin="0,10">
+                        <TextBlock x:Name="tbcPhone" Width="120" VerticalAlignment="Center">
+                            <Run Text="Telefon" FontSize="15"/>
+                            <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16"/>
+                        </TextBlock>
+                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                            <TextBox x:Name="txtPhone" KeyDown="TextBox_KeyDown" GotFocus="txtPhone_GotFocus" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 3" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent" TextChanged="txtPhone_TextChanged"/>
+                        </Border>
+                    </StackPanel>
+
+                    <!-- Login -->
+                    <StackPanel x:Name="spLogin" Orientation="Horizontal" Margin="0,10">
+                        <TextBlock x:Name="tbcLogin" Width="120" VerticalAlignment="Center">
+                            <Run Text="Login" FontSize="15" />
+                            <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16"/>
+                        </TextBlock>
+                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                            <TextBox x:Name="txtLogin" KeyDown="TextBox_KeyDown" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 3" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent"/>
+                        </Border>
+                    </StackPanel>
+
+                    <!-- Parol -->
+                <StackPanel x:Name="spPassword" Orientation="Horizontal" Margin="0,10">
+                    <TextBlock x:Name="tbcParol" Width="120" VerticalAlignment="Center">
+                    <Run Text="Parol" FontSize="15"/>
+                    <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16"/>
+                    </TextBlock>
+                    <Grid>
+                        <!-- Berkitilgan PasswordBox -->
+                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                            <PasswordBox x:Name="txtPassword" KeyDown="TextBox_KeyDown" FontSize="15" Width="200" Padding="5 3" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent" Visibility="Visible" />
+                        </Border>
+                        <!-- Ko‘rinadigan TextBox -->
+                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}" Visibility="Collapsed" x:Name="txtPasswordVisibleBorder">
+                            <TextBox x:Name="txtPasswordVisible" KeyDown="TextBox_KeyDown" FontSize="15" Width="200" Padding="5 3" CaretBrush="{DynamicResource SecondCursorColor}" Height="30" BorderThickness="0" Background="Transparent"/>
+                        </Border>
+                    </Grid>
+
+                    <Button x:Name="btnEye" BorderThickness="0" Background="{DynamicResource AsGrayBackground}" Click="btnEye_Click" Padding="0" Foreground="{DynamicResource PrimaryTextColor}" md:ButtonAssist.CornerRadius="7" Content="🙈" Margin="4 0" Width="25" Height="25"/>
+                </StackPanel>
+
+                <!-- Qo'shimcha maydonlar paneli (default yashirin) -->
+                <StackPanel x:Name="AdditionalFieldsPanel" Visibility="Collapsed" Margin="0,0,0,0">
+                    <!-- Otasining ismi -->
+                    <StackPanel Orientation="Horizontal" Margin="0,9">
+                        <TextBlock Text="Otasining ismi" FontSize="15" Width="120" VerticalAlignment="Center"/>
+                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                            <TextBox x:Name="txtFatherName" KeyDown="TextBox_KeyDown" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 5 5 0" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent"/>
+                        </Border>
+                    </StackPanel>
+
+                    <!-- Manzili -->
+                    <StackPanel Orientation="Horizontal" Margin="0,9">
+                        <TextBlock Text="Manzili" FontSize="15" Width="120" VerticalAlignment="Center"/>
+                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                            <TextBox x:Name="txtAddress" KeyDown="TextBox_KeyDown" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 5 5 0" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent"/>
+                        </Border>
+                    </StackPanel>
+
+                    <!-- Tug‘ilgan sana -->
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="Tug‘ilgan sana" FontSize="15" Width="120" VerticalAlignment="Center"/>
+                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="txtBirthDate" Padding="5 0" BorderThickness="0" Width="170" Height="30" FontSize="15" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalContentAlignment="Center" PreviewTextInput="DateTextBox_PreviewTextInput" TextChanged="DateTextBox_TextChanged" KeyDown="TextBox_KeyDown"/>
+                                <Button Grid.Column="1" Content="📆" Width="20" Height="20" Padding="0" BorderThickness="0" Margin="3,0,7,0" Background="Gray" Click="btnBirthCalendar_Click"/>
+                                <Popup x:Name="popupBirthDate" PlacementTarget="{Binding ElementName=txtBirthDate}" StaysOpen="False">
+                                    <Border Background="White" BorderBrush="Gray" BorderThickness="1">
+                                        <Calendar x:Name="calendarBirthDate" SelectedDatesChanged="calendarBirthDate_SelectedDatesChanged"/>
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+
+                    <!-- JShShIR -->
+                    <StackPanel Orientation="Horizontal" Margin="0,9">
+                        <TextBlock Text="JShShIR" FontSize="15" Width="120" VerticalAlignment="Center"/>
+                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                            <TextBox x:Name="txtJSHIR" MaxLength="14" KeyDown="TextBox_KeyDown" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 5 5 0" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent" TextChanged="txtJSHIR_TextChanged"/>
+                        </Border>
+                    </StackPanel>
+
+                    <!-- Pasport seria -->
+                    <StackPanel Orientation="Horizontal" Margin="0,9">
+                        <TextBlock Text="Pasport seria" FontSize="15" Width="120" VerticalAlignment="Center"/>
+                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                            <TextBox x:Name="txtPassportSeries" KeyDown="TextBox_KeyDown" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 5 5 0" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent" TextChanged="txtPassportSeries_TextChanged"/>
+                        </Border>
+                    </StackPanel>
+
+                    <!-- Berilgan sana -->
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="Berilgan sana" FontSize="15" Width="120" VerticalAlignment="Center"/>
+                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="txtIssueDate" Padding="5 0" BorderThickness="0" Width="170" Height="30" FontSize="15" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown" PreviewTextInput="DateTextBox_PreviewTextInput" TextChanged="DateTextBox_TextChanged"/>
+                                <Button Grid.Column="1" Content="📆" Width="20" Height="20" Padding="0" BorderThickness="0" Margin="3,0,7,0" Background="Gray" Click="btnIssueCalendar_Click" />
+                                <Popup x:Name="popupIssueDate" PlacementTarget="{Binding ElementName=txtIssueDate}" StaysOpen="False">
+                                    <Border Background="White" BorderBrush="Gray" BorderThickness="1">
+                                        <Calendar x:Name="calendarIssueDate" SelectedDatesChanged="calendarIssueDate_SelectedDatesChanged"/>
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+
+                    <!-- Amal muddati -->
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="Amal qilish sana" FontSize="15" Width="120" VerticalAlignment="Center"/>
+                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="txtExpireDate" Padding="5 0" BorderThickness="0" Width="170" Height="30" FontSize="15" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown" PreviewTextInput="DateTextBox_PreviewTextInput" TextChanged="DateTextBox_TextChanged"/>
+                                <Button Grid.Column="1" Content="📆" Width="20" Height="20" Padding="0" BorderThickness="0" Margin="3,0,7,0" Background="Gray" Click="btnExpireCalendar_Click" />
+                                <Popup x:Name="popupExpireDate" PlacementTarget="{Binding ElementName=txtExpireDate}" StaysOpen="False">
+                                    <Border Background="White" BorderBrush="Gray" BorderThickness="1">
+                                        <Calendar x:Name="calendarExpireDate" SelectedDatesChanged="calendarExpireDate_SelectedDatesChanged"/>
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+                <!-- Buttons -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                    <Button x:Name="btnCancel" Content="Bekor qilish" KeyDown="TextBox_KeyDown" Width="105" md:ButtonAssist.CornerRadius="7" BorderThickness="0" Margin="0,0,10,0" Background="{DynamicResource DarkRedBackground}" Click="Cancel_Click"/>
+                    <Button x:Name="btnSave" Content="Saqlash" KeyDown="TextBox_KeyDown" Width="80" md:ButtonAssist.CornerRadius="7" BorderThickness="0" Background="{DynamicResource OtherBackground}" Click="Save_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
