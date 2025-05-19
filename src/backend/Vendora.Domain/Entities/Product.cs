@@ -1,6 +1,6 @@
-﻿using Vendora.Domain.Commons;
+﻿namespace Vendora.Domain.Entities;
 
-namespace Vendora.Domain.Entities;
+using Vendora.Domain.Commons;
 
 public class Product : Auditable
 {
@@ -8,6 +8,6 @@ public class Product : Auditable
     public long CategoryId { get; set; }
     public long MeasureId { get; set; }
     public decimal Quantity { get; set; }
-    public int MinStock { get; set; }
-    public int MaxStock { get; set; }
+    public decimal MinStock { get; set; }
+    public decimal MaxStock { get; set; }
 }

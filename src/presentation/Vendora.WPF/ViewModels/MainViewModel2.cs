@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Vendora.WPF.Models;
 using System.Globalization;
 using System.Windows.Input;
-using Vendora.WPF.UserControls;
 
 namespace Vendora.WPF.ViewModels
 {
@@ -38,8 +37,8 @@ namespace Vendora.WPF.ViewModels
                 OnPropertyChanged(nameof(CurrentChildView));
             }
         }
-        public string Caption 
-        { 
+        public string Caption
+        {
             get => _caption;
             set
             {
@@ -76,7 +75,7 @@ namespace Vendora.WPF.ViewModels
             ShowCustomViewCommand = new ViewModelCommand(ExecuteShowCustomViewCommand);
             ShowSuppliesViewCommand = new ViewModelCommand(ExecuteShowSuppliesViewCommand);
             // Set default view
-            ExecuteShowHomeViewCommand(null);
+            ExecuteShowHomeViewCommand(null!);
         }
 
         private void ExecuteShowSuppliesViewCommand(object obj)
@@ -110,7 +109,7 @@ namespace Vendora.WPF.ViewModels
 
                 CurrentAccountUser.Username = user.Username;
                 CurrentAccountUser.DisplayName = $"{user.Name} {user.LastName} {user.Email}";
-                CurrentAccountUser.ProfilePicture = null;
+                CurrentAccountUser.ProfilePicture = null!;
             }
             else
             {
