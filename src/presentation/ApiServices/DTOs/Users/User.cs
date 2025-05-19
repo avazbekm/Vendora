@@ -25,6 +25,18 @@ public class User
     [JsonPropertyName("pasportSeria")]
     public string PasportSeria { get; set; } = string.Empty;
 
+    [JsonPropertyName("dateOfIssue")]
+    public DateTimeOffset DateOfIssue { get; set; }  // pasport berilgan sana
+    
+    [JsonPropertyName("dateOfExpiry")]
+    public DateTimeOffset DateOfExpiry { get; set; } // Amal qilish muddati
+    
+    [JsonPropertyName("address")]
+    public string Address { get; set; } = string.Empty;
+    
+    [JsonPropertyName("jShShIR")]
+    public string JShShIR { get; set; } = string.Empty;
+
     [JsonPropertyName("phone")]
     public string Phone { get; set; } = string.Empty;
 

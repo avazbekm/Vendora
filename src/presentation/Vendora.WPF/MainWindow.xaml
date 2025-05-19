@@ -9,13 +9,13 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220"/>
             <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions> 
 
         <!-- Sidebar -->
         <DockPanel Background="{DynamicResource PrimaryBackground}" LastChildFill="True">
             <StackPanel>
-            <Button Margin="5 28 0 35" Background="{DynamicResource SecondaryBackground}" HorizontalAlignment="Left" MaxWidth="50" Style="{StaticResource MaterialDesignFlatSecondaryDarkBgButton}">
-                <md:PackIcon Kind="Menu" Width="15" Height="15"/>
+            <Button Margin="5 28 0 35" BorderBrush="{DynamicResource PrimaryBorderColor}" Background="{DynamicResource PrimaryBackground}" HorizontalAlignment="Left" MaxWidth="50" Foreground="{DynamicResource PrimaryTextColor}" Style="{StaticResource MaterialDesignFlatSecondaryDarkBgButton}">
+                <md:PackIcon Kind="Menu" Width="25" Height="25" Padding="0"/>
             </Button>
 
             <Border Background="{DynamicResource SecondaryBackground}" CornerRadius="0 60 0 0" Height="500" VerticalAlignment="Bottom">

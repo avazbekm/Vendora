@@ -17,6 +17,7 @@ public record UpdateUserCommand : IRequest<UserResultDto>
         FirstName = command.FirstName;
         LastName = command.LastName;
         Patronomyc = command.Patronomyc;
+        Login = command.Login;
         Password = command.Password;
         PasportSeria = command.PasportSeria;
         Phone = command.Phone;
@@ -24,22 +25,29 @@ public record UpdateUserCommand : IRequest<UserResultDto>
         Gender = command.Gender;
         RoleId = command.RoleId;
         PhotoId = command.PhotoId;
+        DateOfIssue = command.DateOfIssue;
+        DateOfExpiry = command.DateOfExpiry;
+        Address = command.Address;
+        JShShIR = command.JShShIR;
     }
-
     public long Id { get; set; }
-
     public string FirstName { get; set; } = string.Empty;
-    public string? LastName { get; set; }
+    public string LastName { get; set; } = string.Empty;
     public string? Patronomyc { get; set; } = string.Empty;
 
     public string Login { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
 
     public string? PasportSeria { get; set; } = string.Empty;
+    public DateTimeOffset? DateOfIssue { get; set; }  // pasport berilgan sana
+    public DateTimeOffset? DateOfExpiry { get; set; } // Amal qilish muddati
+
     public string Phone { get; set; } = string.Empty;
     public DateTimeOffset? DateOfBirth { get; set; }
     public Gender Gender { get; set; }
     public long RoleId { get; set; }
+    public string? Address { get; set; }
+    public string? JShShIR { get; set; }
     public long? PhotoId { get; set; }
 }
  

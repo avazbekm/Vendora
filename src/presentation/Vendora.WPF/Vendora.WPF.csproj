@@ -9,10 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Resources\**" />
-    <EmbeddedResource Remove="Resources\**" />
-    <None Remove="Resources\**" />
-    <Page Remove="Resources\**" />
+    <None Remove="Resources\Images\avatar.jpg" />
+    <None Remove="Resources\Images\avatar1.jpg" />
+    <None Remove="Resources\Images\avatar2.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +22,22 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ApiServices\ApiServices.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Styles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\avatar.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\avatar1.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\avatar2.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

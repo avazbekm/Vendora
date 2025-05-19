@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Vendora.Infrastructure.Persistence.EntityFramwork;
@@ -11,9 +12,11 @@ using Vendora.Infrastructure.Persistence.EntityFramwork;
 namespace Vendora.Infrastructure.Persistence.EntityFramwork.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250518174052_addedAddressToUserEntity")]
+    partial class addedAddressToUserEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,10 +46,10 @@ namespace Vendora.Infrastructure.Persistence.EntityFramwork.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTimeOffset?>("UpdatedAt")
+                    b.Property<DateTimeOffset>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<long?>("UpdatedBy")
+                    b.Property<long>("UpdatedBy")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
@@ -90,10 +93,10 @@ namespace Vendora.Infrastructure.Persistence.EntityFramwork.Migrations
                     b.Property<decimal>("Quantity")
                         .HasColumnType("numeric");
 
-                    b.Property<DateTimeOffset?>("UpdatedAt")
+                    b.Property<DateTimeOffset>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<long?>("UpdatedBy")
+                    b.Property<long>("UpdatedBy")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
@@ -123,10 +126,10 @@ namespace Vendora.Infrastructure.Persistence.EntityFramwork.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<DateTimeOffset?>("UpdatedAt")
+                    b.Property<DateTimeOffset>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<long?>("UpdatedBy")
+                    b.Property<long>("UpdatedBy")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
@@ -208,10 +211,10 @@ namespace Vendora.Infrastructure.Persistence.EntityFramwork.Migrations
                     b.Property<long>("RoleId")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTimeOffset?>("UpdatedAt")
+                    b.Property<DateTimeOffset>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<long?>("UpdatedBy")
+                    b.Property<long>("UpdatedBy")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");

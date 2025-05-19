@@ -4,6 +4,7 @@ using System.Windows;
 using ApiServices.Services;
 using Vendora.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Vendora.WPF.Windows.Users;
 
 public partial class App : Application
 {
@@ -23,10 +24,10 @@ public partial class App : Application
 
         ServiceProvider = services.BuildServiceProvider();
 
-        var mainWindow = new MainWindow
+        var createUserWindow = new AddUserWindow(ServiceProvider)
         {
             DataContext = ServiceProvider.GetService<MainViewModel>()
         };
-        mainWindow.Show();
+        createUserWindow.Show();
     }
 }
