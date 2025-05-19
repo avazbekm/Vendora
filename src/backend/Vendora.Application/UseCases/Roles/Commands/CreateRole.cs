@@ -1,10 +1,8 @@
-﻿using MediatR;
-using AutoMapper;
-using Vendora.Domain.Entities;
-using Vendora.Application.Common;
+﻿using AutoMapper;
+using MediatR;
+using Vendora.Application.Interfaces;
 using Vendora.Application.UseCases.Roles.DTOs;
-using Microsoft.EntityFrameworkCore;
-using Vendora.Application.Exceptions;
+using Vendora.Domain.Entities;
 
 namespace Vendora.Application.UseCases.Roles.Commands;
 
@@ -23,11 +21,6 @@ public class CreateRoleCommandHandler(IAppDbContext context, IMapper mapper)
 {
     public async Task<RoleResultDto> Handle(CreateRoleCommand command, CancellationToken cancellationToken)
     {
-
-        var existRole = await context.Roles.FirstOrDefaultAsync(r => r.RoleName.Equals(command.RoleName), cancellationToken);
-
-        if (existRole != null)
-            throw new AlreadyExistException($"Bu {command.RoleName} nomi role mavjud");
 
         var role = mapper.Map<Role>(command);
 

@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Security;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Security.Principal;
 using System.Windows.Input;
 using Vendora.WPF.Models;
 
 namespace Vendora.WPF.ViewModels
 {
-    public class LoginViewModel:ViewModelBase
+    public class LoginViewModel : ViewModelBase
     {
         //Fields
         private string _username;
@@ -20,20 +12,20 @@ namespace Vendora.WPF.ViewModels
         private string _errorMessage;
         private bool _isViewVisible = true;
 
-        public string Username 
-        { 
+        public string Username
+        {
             get
-                { 
-                    return _username;
-                } 
-            set 
-            { 
-                _username = value; 
-                OnPropertyChanged(nameof(Username)); 
-            } 
+            {
+                return _username;
+            }
+            set
+            {
+                _username = value;
+                OnPropertyChanged(nameof(Username));
+            }
         }
 
-        public string Password 
+        public string Password
         {
             get
             {
@@ -60,13 +52,13 @@ namespace Vendora.WPF.ViewModels
         }
         public bool IsViewVisible
         {
-            get 
-            { 
+            get
+            {
                 return _isViewVisible;
             }
-            set 
+            set
             {
-                _isViewVisible = value; 
+                _isViewVisible = value;
                 OnPropertyChanged(nameof(IsViewVisible));
             }
         }
@@ -80,7 +72,7 @@ namespace Vendora.WPF.ViewModels
         public LoginViewModel()
         {
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
-            RecoverPasswordCommand = new ViewModelCommand(p=>ExecuteRecoverPasswordCommand("", ""));
+            RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPasswordCommand("", ""));
         }
 
 

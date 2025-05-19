@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Vendora.WPF.Models
+﻿namespace Vendora.WPF.Models
 {
     public static class SampleUsers
     {
@@ -14,9 +8,9 @@ namespace Vendora.WPF.Models
         {
             Id = Guid.NewGuid().ToString(),
             Username = "admin",
-            Password = "admin123",
-            Name = "Ivan",
-            LastName = "Petrov",
+            Password = "123",
+            Name = "Avazbek",
+            LastName = "Siddiqov",
             Email = "admin@vendora.com"
         },
         new UserModel
@@ -37,6 +31,11 @@ namespace Vendora.WPF.Models
             return SampleUsers.Users.FirstOrDefault(u =>
                 u.Username.Equals(username, StringComparison.OrdinalIgnoreCase) &&
                 u.Password == password);
+        }
+        public static UserModel GetByUserName(string username)
+        {
+            return SampleUsers.Users.FirstOrDefault(u =>
+                u.Username.Equals(username, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

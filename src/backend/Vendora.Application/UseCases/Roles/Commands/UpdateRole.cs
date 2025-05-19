@@ -1,14 +1,14 @@
 ﻿namespace Vendora.Application.UseCases.Roles.Commands;
 
 
-using MediatR;
 using AutoMapper;
+using global::Vendora.Application.UseCases.Roles.DTOs;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
-using Vendora.Application.Common;
-using Microsoft.EntityFrameworkCore;
 using Vendora.Application.Exceptions;
-using global::Vendora.Application.UseCases.Roles.DTOs;
+using Vendora.Application.Interfaces;
 
 public record UpdateRoleCommand : IRequest<RoleResultDto>
 {

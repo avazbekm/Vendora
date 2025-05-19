@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Vendora.WPF.UserCalendar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vendora.WPF"
+             mc:Ignorable="d" Height="20" Width="111">
+    <Grid>
+        <StackPanel Orientation="Horizontal" >
+            <TextBox x:Name="dateTextBox" Width="90"  VerticalAlignment="Stretch" HorizontalContentAlignment="Right" Margin="0"/>
+            <Button Content="📅"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="1,0,0,0" 
+                    Click="OpenCalendar_Click" IsTabStop="False"/>
+            <Popup x:Name="calendarPopup" PlacementTarget="{Binding ElementName=dateTextBox}" StaysOpen="False">
+                <Border BorderBrush="Aqua" BorderThickness="1">
+                    <Calendar x:Name="calendar" SelectedDatesChanged="Calendar_SelectedDatesChanged"/>
+                </Border>
+            </Popup>
+        </StackPanel>
+    </Grid>
+</UserControl>

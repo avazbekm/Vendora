@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using Vendora.Application.Common;
 using Microsoft.EntityFrameworkCore;
+using Vendora.Application.Interfaces;
 
 namespace Vendora.Application.UseCases.Products.Commands;
 

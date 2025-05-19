@@ -8,7 +8,7 @@ public class User : Auditable
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
     public string? Patronomyc { get; set; } = string.Empty;
-    
+
     public string Login { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
 
@@ -18,7 +18,7 @@ public class User : Auditable
 
     public string Phone { get; set; } = string.Empty;   
     public DateTimeOffset? DateOfBirth { get; set; }
-    public Gender Gender {  get; set; }
+    public Gender Gender { get; set; }
     public long RoleId { get; set; }
     public string? Address {  get; set; }
     public string? JShShIR {  get; set; }

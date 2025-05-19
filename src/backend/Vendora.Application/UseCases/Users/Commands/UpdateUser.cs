@@ -1,13 +1,13 @@
 ﻿namespace Vendora.Application.Users.Commands.UpdateUser;
 
-using MediatR;
 using AutoMapper;
-using System.Threading;
-using Vendora.Domain.Enums;
-using System.Threading.Tasks;
-using Vendora.Application.Common;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Threading;
+using System.Threading.Tasks;
+using Vendora.Application.Interfaces;
 using Vendora.Application.Users.Commands.CreateUser;
+using Vendora.Domain.Enums;
 
 public record UpdateUserCommand : IRequest<UserResultDto>
 {
@@ -50,7 +50,7 @@ public record UpdateUserCommand : IRequest<UserResultDto>
     public string? JShShIR { get; set; }
     public long? PhotoId { get; set; }
 }
- 
+
 public class UpdateUserCommandHandler(IAppDbContext context, IMapper mapper)
     : IRequestHandler<UpdateUserCommand, UserResultDto>
 {

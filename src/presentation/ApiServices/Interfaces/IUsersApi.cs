@@ -1,7 +1,7 @@
-﻿    namespace ApiServices.Interfaces;
+﻿namespace ApiServices.Interfaces;
 
-    using Refit;
-    using ApiServices.DTOs.Users;
+using ApiServices.DTOs.Users;
+using Refit;
 
     [Headers("accept: application/json")]
     public interface IUsersApi

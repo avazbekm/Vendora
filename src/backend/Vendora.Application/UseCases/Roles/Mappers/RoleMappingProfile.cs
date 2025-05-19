@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Vendora.Domain.Entities;
-using Vendora.Application.UseCases.Roles.DTOs;
 using Vendora.Application.UseCases.Roles.Commands;
+using Vendora.Application.UseCases.Roles.DTOs;
+using Vendora.Domain.Entities;
 
 namespace Vendora.Application.UseCases.Roles.Mappers;
 

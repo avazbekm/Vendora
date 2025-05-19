@@ -19,9 +19,8 @@ public class MainViewModel(IUsersApi usersApi)
             {
                 Users.Clear();
                 foreach (var user in response.Content!)
-                {
                     Users.Add(user);
-                }
+
             }
             else
             {
