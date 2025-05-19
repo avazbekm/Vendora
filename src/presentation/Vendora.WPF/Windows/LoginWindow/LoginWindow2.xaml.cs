@@ -22,6 +22,7 @@ namespace Vendora.WPF.Windows.LoginWindow
         public LoginWindow2()
         {
             InitializeComponent();
+            txtUser.Focus();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

@@ -23,6 +23,9 @@
         <DataTemplate DataType="{x:Type viewModel:CustomViewModel}">
             <local:CustomView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:SuppliesViewModel}">
+            <local:SuppliesView/>
+        </DataTemplate>
 
     </Window.Resources>
     <Border CornerRadius="10" BorderThickness="2">
@@ -77,6 +80,15 @@
                     <StackPanel Orientation="Horizontal">
                         <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
                         <TextBlock Text="Savdo" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+                
+                <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}"
+                             Command="{Binding ShowSuppliesViewCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="TruckMoving" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Ta'minot" Style="{StaticResource menuButtonText}"/>
                     </StackPanel>
                 </RadioButton>
 
