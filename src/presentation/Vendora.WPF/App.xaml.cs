@@ -5,6 +5,7 @@ using ApiServices.Services;
 using Vendora.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Vendora.WPF.Windows.Users;
+using Vendora.WPF.Windows.LoginWindow;
 
 public partial class App : Application
 {
@@ -21,13 +22,14 @@ public partial class App : Application
 
         // WPF xizmatlarini qo‘shish
         services.AddSingleton<MainViewModel>();
+        services.AddSingleton<LoginViewModel>();
 
         ServiceProvider = services.BuildServiceProvider();
 
-        var createUserWindow = new AddUserWindow(ServiceProvider)
+        var mainWindow = new MainWindow
         {
             DataContext = ServiceProvider.GetService<MainViewModel>()
         };
-        createUserWindow.Show();
+        mainWindow.Show();
     }
 }

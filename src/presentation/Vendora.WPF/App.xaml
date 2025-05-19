@@ -15,7 +15,7 @@
                 <!--begin::Themes-->
                 <ResourceDictionary Source="/Themes/LightTheme.xaml"/>
                 <!--end::Themes-->
-            
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
