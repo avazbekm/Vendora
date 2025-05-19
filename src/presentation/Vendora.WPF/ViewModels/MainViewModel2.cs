@@ -1,6 +1,12 @@
 ﻿using FontAwesome.Sharp;
-using System.Windows.Input;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Vendora.WPF.Models;
+using System.Globalization;
+using System.Windows.Input;
 
 namespace Vendora.WPF.ViewModels
 {
@@ -8,7 +14,7 @@ namespace Vendora.WPF.ViewModels
     {
         // Fields
         private UserAccountModel _currentAccountUser;
-        private ViewModelBase _currentChildView;
+        private object _currentChildView;
         private string _caption;
         private IconChar _iconCache;
 
@@ -22,10 +28,10 @@ namespace Vendora.WPF.ViewModels
             }
         }
         // Properties
-        public ViewModelBase CurrentChildView
-        {
-            get => _currentChildView;
-            set
+        public object CurrentChildView
+        { 
+            get => _currentChildView; 
+            set 
             {
                 _currentChildView = value;
                 OnPropertyChanged(nameof(CurrentChildView));
@@ -50,9 +56,15 @@ namespace Vendora.WPF.ViewModels
             }
         }
 
+        // Кэшированные ViewModels (один раз создаются)
+ 
+        private readonly CustomViewModel _customViewModel = new CustomViewModel();
+        private readonly HomeViewModel _homeViewModel = new HomeViewModel();
+        private readonly SuppliesViewModel _suppliesViewModel = new SuppliesViewModel();
         // Commands
         public ICommand ShowHomeViewCommand { get; }
         public ICommand ShowCustomViewCommand { get; }
+        public ICommand ShowSuppliesViewCommand { get; }
         // Constructor
         public MainViewModel2()
         {
@@ -61,20 +73,30 @@ namespace Vendora.WPF.ViewModels
             // Initialize commands
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
             ShowCustomViewCommand = new ViewModelCommand(ExecuteShowCustomViewCommand);
+            ShowSuppliesViewCommand = new ViewModelCommand(ExecuteShowSuppliesViewCommand);
             // Set default view
             ExecuteShowHomeViewCommand(null!);
         }
 
+        private void ExecuteShowSuppliesViewCommand(object obj)
+        {
+            var view = new SuppliesView { DataContext = _suppliesViewModel };
+            CurrentChildView = view;
+            Caption = "Ta'minot";
+            IconCache = IconChar.TruckMoving;
+        }
 
         private void ExecuteShowHomeViewCommand(object obj)
         {
-            CurrentChildView = new HomeViewModel();
+            var view = new HomeView {DataContext=_homeViewModel};
+            CurrentChildView = view;
             Caption = "DashBoard";
             IconCache = IconChar.Home;
         }
         private void ExecuteShowCustomViewCommand(object obj)
         {
-            CurrentChildView = new CustomViewModel();
+            var view = new CustomView { DataContext= _customViewModel};
+            CurrentChildView = view;
             Caption = "Savdo";
             IconCache = IconChar.UserGroup;
         }

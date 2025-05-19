@@ -57,4 +57,21 @@ namespace Vendora.WPF.Helpers
             }
         }
     }
+    public static class FocusMovement
+    {
+        // Метод для перевода фокуса по имени
+        public static void MoveFocusToElement(string elementName, DependencyObject parent)
+        {
+            Window window = Window.GetWindow(parent);
+            if (window != null)
+            {
+                UIElement targetElement = window.FindName(elementName) as UIElement;
+                if (targetElement != null)
+                {
+                    targetElement.Focus();
+                }
+            }
+        }
+
+    }
 }
