@@ -26,21 +26,21 @@ public partial class App : Application
 
         ServiceProvider = services.BuildServiceProvider();
 
-        var mainWindow = new MainWindow
+        var loginWindow2 = new LoginWindow2
         {
-            DataContext = ServiceProvider.GetService<MainViewModel>()
+            DataContext = ServiceProvider.GetService<LoginWindow2>()
         };
-        loginWindow.Show();
-        loginWindow.IsVisibleChanged += (s, e) =>
+        loginWindow2.Show();
+        loginWindow2.IsVisibleChanged += (s, e) =>
         {
-            if (loginWindow.IsVisible == false && loginWindow.IsLoaded)
+            if (loginWindow2.IsVisible == false && loginWindow2.IsLoaded)
             {
                 var mainWindow2 = new MainWindow2
                 {
-                    DataContext = ServiceProvider.GetService<MainViewModel2>()
+                    DataContext = ServiceProvider.GetService<MainWindow2>()
                 };
                 mainWindow2.Show();
-                loginWindow.Close();
+                loginWindow2.Close();
             }
         };
 

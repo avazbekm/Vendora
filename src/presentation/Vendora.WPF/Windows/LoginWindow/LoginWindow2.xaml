@@ -189,7 +189,7 @@
                             VerticalContentAlignment="Center"
                             Margin="0,5,0,0"
                             Padding="20,0,0,0"
-                             helpers:EnterKeyTraversal.IsEnabled="True">
+                            helpers:EnterKeyTraversal.IsEnabled="True">
 
                         <TextBox.Background>
                             <ImageBrush ImageSource="pack://application:,,,/Images/user-icon.png"

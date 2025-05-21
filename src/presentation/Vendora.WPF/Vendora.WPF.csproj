@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Images\avatar.jpg" />
     <None Remove="Resources\Images\avatar1.jpg" />
     <None Remove="Resources\Images\avatar2.jpg" />
   </ItemGroup>
@@ -38,9 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Images\avatar.jpg">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Resources\Images\avatar1.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

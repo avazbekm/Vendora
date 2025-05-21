@@ -22,6 +22,7 @@ public class MainViewModel(IUsersApi usersApi)
                     Users.Add(user);
 
             }
+
             else
             {
                 MessageBox.Show("Failed to load users from API.");

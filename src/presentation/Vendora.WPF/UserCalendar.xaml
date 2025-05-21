@@ -8,8 +8,8 @@
     <Grid>
         <StackPanel Orientation="Horizontal" >
             <TextBox x:Name="dateTextBox" Width="90"  VerticalAlignment="Stretch" HorizontalContentAlignment="Right" Margin="0"/>
-            <Button Content="📅"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="1,0,0,0" 
-                    Click="OpenCalendar_Click" IsTabStop="False"/>
+            <Button Content="📅" Padding="0"   Margin="1,0,0,0" 
+                    Click="OpenCalendar_Click" IsTabStop="False" Height="20"/>
             <Popup x:Name="calendarPopup" PlacementTarget="{Binding ElementName=dateTextBox}" StaysOpen="False">
                 <Border BorderBrush="Aqua" BorderThickness="1">
                     <Calendar x:Name="calendar" SelectedDatesChanged="Calendar_SelectedDatesChanged"/>

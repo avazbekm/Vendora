@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Vendora.WPF.Models;
 using System.Globalization;
 using System.Windows.Input;
+using Vendora.WPF.UserControls;
 
 namespace Vendora.WPF.ViewModels
 {
