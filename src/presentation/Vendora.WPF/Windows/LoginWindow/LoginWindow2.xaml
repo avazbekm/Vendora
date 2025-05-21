@@ -147,7 +147,8 @@
                 <StackPanel Width="240"
                            Grid.Row="1"
                            Orientation="Vertical"
-                           Margin="0,35,0,0">
+                            VerticalAlignment="Center"
+                           Margin="0,0,0,0">
 
                     <Image Source="/Images/Logo.png"
                           Width="100" Height="100"/>
@@ -197,6 +198,11 @@
                                        AlignmentX="Left"/>
                         </TextBox.Background>
                     </TextBox>
+                    <TextBlock Text="user - admin" HorizontalAlignment="Center"
+                             Foreground="Azure"
+                             FontStyle="Italic">
+                        
+                    </TextBlock>
 
                     <TextBlock Text="Password"
                               Foreground="DarkGray"
@@ -204,13 +210,17 @@
                               FontWeight="Medium"
                               FontFamily="Montserrat"                             
                               Margin="0,15,0,0"/>
-
+                    
                     <UserControls:BindablePasswordBox Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
                                             Height="28"
                                             Margin="0,5,0,0"
                                             helpers:EnterKeyTraversal.IsEnabled="True">
                     </UserControls:BindablePasswordBox>
 
+                    <TextBlock Text="parol-123" HorizontalAlignment="Center"
+                             Foreground="Azure"
+                             FontStyle="Italic">
+                    </TextBlock>
                     <TextBlock Text="{Binding ErrorMessage}"
                               Foreground="#D6596D"
                               FontSize="12"
@@ -227,7 +237,7 @@
                             FontSize="12"
                             FontFamily="Montserrat"
                             Cursor="Hand"                           
-                            Margin="0,30,0,0">
+                            Margin="0,20,0,0">
 
                         <Button.Style>
                             <Style TargetType="Button">

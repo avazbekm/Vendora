@@ -35,6 +35,7 @@ public partial class AddUserWindow : Window
         this.services = services;
     }
 
+    
     private void btnRight_Click(object sender, RoutedEventArgs e)
     {
         if (!isSwitched)

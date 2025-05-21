@@ -26,9 +26,11 @@ public partial class App : Application
 
         ServiceProvider = services.BuildServiceProvider();
 
-        var loginWindow2 = new LoginWindow2
+        ServiceProvider = services.BuildServiceProvider();
+
+        var loginWindow = new LoginWindow2
         {
-            DataContext = ServiceProvider.GetService<LoginWindow2>()
+            DataContext = ServiceProvider.GetService<LoginViewModel>()
         };
         loginWindow2.Show();
         loginWindow2.IsVisibleChanged += (s, e) =>

@@ -8,6 +8,7 @@ using Vendora.WPF.Models;
 using System.Globalization;
 using System.Windows.Input;
 using Vendora.WPF.UserControls;
+using Vendora.WPF.Windows.Users;
 
 namespace Vendora.WPF.ViewModels
 {
@@ -66,6 +67,7 @@ namespace Vendora.WPF.ViewModels
         public ICommand ShowHomeViewCommand { get; }
         public ICommand ShowCustomViewCommand { get; }
         public ICommand ShowSuppliesViewCommand { get; }
+        public ICommand OpenAddUserWindow { get; }
         // Constructor
         public MainViewModel2()
         {
@@ -75,8 +77,32 @@ namespace Vendora.WPF.ViewModels
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
             ShowCustomViewCommand = new ViewModelCommand(ExecuteShowCustomViewCommand);
             ShowSuppliesViewCommand = new ViewModelCommand(ExecuteShowSuppliesViewCommand);
+            OpenAddUserWindow = new ViewModelCommand(ExecuteOpenAddUserWindowCommand);
             // Set default view
             ExecuteShowHomeViewCommand(null!);
+        }
+
+        private readonly IServiceProvider _serviceProvider;
+
+        // Constructor
+        public MainViewModel2(IServiceProvider serviceProvider)
+        {
+            _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
+            CurrentAccountUser = new UserAccountModel();
+            LoadCurrentUserData();
+            // Initialize commands
+            ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
+            ShowCustomViewCommand = new ViewModelCommand(ExecuteShowCustomViewCommand);
+            ShowSuppliesViewCommand = new ViewModelCommand(ExecuteShowSuppliesViewCommand);
+            OpenAddUserWindow = new ViewModelCommand(ExecuteOpenAddUserWindowCommand);
+            // Set default view
+            ExecuteShowHomeViewCommand(null!);
+        }
+
+        private void ExecuteOpenAddUserWindowCommand(object obj)
+        {
+            var addUserWindow = new AddUserWindow(_serviceProvider);
+            addUserWindow.ShowDialog();
         }
 
         private void ExecuteShowSuppliesViewCommand(object obj)
