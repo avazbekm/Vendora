@@ -24,6 +24,10 @@ public class CreateRoleCommandHandler(IAppDbContext context, IMapper mapper)
 
         var role = mapper.Map<Role>(command);
 
+        role.CreatedBy  = 1;
+
+        role.CreatedAt = DateTimeOffset.UtcNow;
+
         await context.Roles.AddAsync(role, cancellationToken);
 
         await context.SaveChangesAsync(cancellationToken);

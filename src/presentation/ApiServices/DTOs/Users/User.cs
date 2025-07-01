@@ -14,7 +14,7 @@ public class User
     public string LastName { get; set; } = string.Empty;
 
     [JsonPropertyName("patronomyc")]
-    public string Patronomyc { get; set; } = string.Empty;
+    public string? Patronomyc { get; set; } = string.Empty;
 
     [JsonPropertyName("login")]
     public string Login { get; set; } = string.Empty;
@@ -23,25 +23,25 @@ public class User
     public string Password { get; set; } = string.Empty;
 
     [JsonPropertyName("pasportSeria")]
-    public string PasportSeria { get; set; } = string.Empty;
+    public string? PasportSeria { get; set; } = string.Empty;
 
     [JsonPropertyName("dateOfIssue")]
-    public DateTimeOffset DateOfIssue { get; set; }  // pasport berilgan sana
+    public DateTimeOffset? DateOfIssue { get; set; }  // pasport berilgan sana
     
     [JsonPropertyName("dateOfExpiry")]
-    public DateTimeOffset DateOfExpiry { get; set; } // Amal qilish muddati
+    public DateTimeOffset? DateOfExpiry { get; set; } // Amal qilish muddati
     
     [JsonPropertyName("address")]
-    public string Address { get; set; } = string.Empty;
+    public string? Address { get; set; } = string.Empty;
     
     [JsonPropertyName("jShShIR")]
-    public string JShShIR { get; set; } = string.Empty;
+    public string? JShShIR { get; set; } = string.Empty;
 
     [JsonPropertyName("phone")]
     public string Phone { get; set; } = string.Empty;
 
     [JsonPropertyName("dateOfBirth")]
-    public DateTimeOffset DateOfBirth { get; set; }
+    public DateTimeOffset? DateOfBirth { get; set; }
 
     [JsonPropertyName("gender")]
     public int Gender { get; set; } // Enum o‘rniga int, chunki JSON’da raqam

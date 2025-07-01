@@ -3,9 +3,8 @@
 using System.Windows;
 using ApiServices.Services;
 using Vendora.WPF.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
-using Vendora.WPF.Windows.Users;
 using Vendora.WPF.Windows.LoginWindow;
+using Microsoft.Extensions.DependencyInjection;
 
 public partial class App : Application
 {
@@ -21,25 +20,24 @@ public partial class App : Application
         ApiService.ConfigureServices(services, "https://localhost:7088/");
 
         // WPF xizmatlarini qo‘shish
-        services.AddSingleton<MainViewModel2>();
+        services.AddSingleton<MainViewModel>();
         services.AddSingleton<LoginViewModel>();
 
-        ServiceProvider = services.BuildServiceProvider();
 
-        ServiceProvider = services.BuildServiceProvider();
+        var serviceProvider = services.BuildServiceProvider();
 
-        var loginWindow = new LoginWindow2
+        var loginWindow = new LoginWindow
         {
-            DataContext = ServiceProvider.GetService<LoginViewModel>()
+            DataContext = serviceProvider.GetService<LoginViewModel>()
         };
         loginWindow.Show();
         loginWindow.IsVisibleChanged += (s, e) =>
         {
             if (loginWindow.IsVisible == false && loginWindow.IsLoaded)
             {
-                var mainWindow2 = new MainWindow2
+                var mainWindow2 = new MainWindow
                 {
-                    DataContext = ServiceProvider.GetService<MainViewModel2>()
+                    DataContext = serviceProvider.GetService<MainViewModel>()
                 };
                 mainWindow2.Show();
                 loginWindow.Close();

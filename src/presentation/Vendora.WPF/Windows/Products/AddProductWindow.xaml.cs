@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Vendora.WPF.Pages.Users
+namespace Vendora.WPF.Windows.Products
 {
     /// <summary>
-    /// Interaction logic for UsersPage.xaml
+    /// Interaction logic for AddProductWindow.xaml
     /// </summary>
-    public partial class UsersPage : Page
+    public partial class AddProductWindow : Window
     {
-        public UsersPage()
+        public AddProductWindow()
         {
             InitializeComponent();
         }

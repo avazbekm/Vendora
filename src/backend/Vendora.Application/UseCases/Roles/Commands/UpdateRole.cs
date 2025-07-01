@@ -1,14 +1,14 @@
 ﻿namespace Vendora.Application.UseCases.Roles.Commands;
 
 
-using AutoMapper;
-using global::Vendora.Application.UseCases.Roles.DTOs;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Vendora.Application.Exceptions;
 using Vendora.Application.Interfaces;
+using global::Vendora.Application.UseCases.Roles.DTOs;
 
 public record UpdateRoleCommand : IRequest<RoleResultDto>
 {
@@ -16,10 +16,12 @@ public record UpdateRoleCommand : IRequest<RoleResultDto>
     {
         Id = command.Id;
         RoleName = command.RoleName;
+
     }
 
     public long Id { get; set; }
     public string RoleName { get; set; } = string.Empty;
+
 }
 public class UpdateRoleCommandHandler(IAppDbContext context, IMapper mapper)
     : IRequestHandler<UpdateRoleCommand, RoleResultDto>

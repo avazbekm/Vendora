@@ -16,7 +16,7 @@
                 <!--begin::Themes-->
                 <ResourceDictionary Source="/Themes/LightTheme.xaml"/>
                 <ResourceDictionary Source="/Themes/DarkTheme.xaml"/>
-                <ResourceDictionary Source="/Styles/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/ButtonStyles.xaml"/>
                 <!--end::Themes-->
 
             </ResourceDictionary.MergedDictionaries>
