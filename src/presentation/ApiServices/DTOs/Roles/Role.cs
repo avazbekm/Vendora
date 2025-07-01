@@ -17,9 +17,9 @@ public class Role
     public DateTimeOffset CreatedAt { get; set; }
 
     [JsonPropertyName("updatedBy")]
-    public long UpdatedBy { get; set; }
+    public long? UpdatedBy { get; set; }
 
     [JsonPropertyName("updatedAt")]
-    public DateTimeOffset UpdatedAt { get; set; }
+    public DateTimeOffset? UpdatedAt { get; set; }
 
 }

@@ -1,7 +1,7 @@
 ﻿namespace Vendora.Domain.Entities;
 
-using Vendora.Domain.Commons;
 using Vendora.Domain.Enums;
+using Vendora.Domain.Commons;
 
 public class User : Auditable
 {

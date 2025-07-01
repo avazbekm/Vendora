@@ -1,21 +1,21 @@
-﻿using Refit;
-using System.Windows;
+﻿using System.Windows;
 using Microsoft.Win32;
 using System.Windows.Input;
 using ApiServices.DTOs.Users;
 using ApiServices.Interfaces;
-using ApiServices.DTOs.Roles;
-using System.Windows.Controls;
 using Vendora.WPF.Validations;
+using System.Windows.Controls;
 using System.Windows.Threading;
 using System.Windows.Media.Imaging;
 using System.Text.RegularExpressions;
-using System.Collections.ObjectModel;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Vendora.WPF.Windows.Users;
 
-public partial class AddUserWindow : Window
+/// <summary>
+/// Interaction logic for UpdateUserWindow.xaml
+/// </summary>
+public partial class UpdateUserWindow : Window
 {
     private bool isSwitched = false;
     private CornerRadius leftPanelCornerRadius;
@@ -23,51 +23,20 @@ public partial class AddUserWindow : Window
     // parolda ko'zni ochib yopish uchun
     private bool isPasswordVisible = false;
     private readonly IUsersApi _usersApi;
-    private readonly IRolesApi _rolesApi;
-    private long RoleId = 0;
+    private readonly IServiceProvider services;
 
-    public ObservableCollection<Role> Roles { get; } = [];
-
-    private IServiceProvider services;
-    public AddUserWindow(IServiceProvider services)
+    public UpdateUserWindow(IServiceProvider services)
     {
         InitializeComponent();
         this.services = services;
         _usersApi = services.GetRequiredService<IUsersApi>();
-        _rolesApi = services.GetRequiredService<IRolesApi>();
         leftPanelCornerRadius = LeftPanel.CornerRadius;
         rightPanelCornerRadius = RightPanel.CornerRadius;
         txtLastName.Focus();
-        LoadingRoleAsync();      
+        cbPosition.Items.Add(new ComboBoxItem { Content = "Administrator" });
+        cbPosition.Items.Add(new ComboBoxItem { Content = "User" });
+        cbPosition.Items.Add(new ComboBoxItem { Content = "Manager" });
     }
-
-    private async Task LoadingRoleAsync()
-    {
-        try
-        {
-            var response = await _rolesApi.GetAllRolesAsync();
-            if (response.IsSuccessStatusCode && response.Content != null)
-            {
-                Roles.Clear();
-                foreach (var role in response.Content)
-                {
-                    Roles.Add(role);
-                }
-                cbPosition.ItemsSource = Roles;
-            }
-
-            else
-            {
-                MessageBox.Show("Failed to load roles from API.");
-            }
-        }
-        catch (ApiException)
-        {
-            MessageBox.Show("An error occurred while connecting to the API.");
-        }
-
-    }
-
 
     private void btnRight_Click(object sender, RoutedEventArgs e)
     {
@@ -197,9 +166,14 @@ public partial class AddUserWindow : Window
             Login = txtLogin.Text.Trim(),
             Password = txtPassword.Password.Trim(),
             Phone = txtPhone.Text.Trim().Replace(" ", ""),
-            Gender = rbMale.IsChecked.Value ? 0 : 1, // Erkak: 0, Ayol: 1
-            RoleId = RoleId,
-            
+            Gender = rbMale.IsChecked.Value ? 1 : 2, // Erkak: 1, Ayol: 2
+            RoleId = cbPosition.SelectedItem switch
+            {
+                ComboBoxItem item when item.Content.ToString() == "Administrator" => 1,
+                ComboBoxItem item when item.Content.ToString() == "User" => 2,
+                ComboBoxItem item when item.Content.ToString() == "Manager" => 3,
+                _ => 0 // Agar xato bo‘lsa
+            },
             PhotoId = null, // Hozircha rasm API’ga yuborilmaydi
         };
 
@@ -293,15 +267,6 @@ public partial class AddUserWindow : Window
 
     private void cbPosition_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (cbPosition.SelectedItem is Role selectedRole)
-        {
-            RoleId = selectedRole.Id;
-        }
-        else if (cbPosition.SelectedValue != null)
-        {
-            RoleId = (long)cbPosition.SelectedValue; // SelectedValuePath="Id" tufayli
-        }
-
         if (cbPosition.SelectedItem != null)
         {
             cbPosition.IsDropDownOpen = false;

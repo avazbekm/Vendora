@@ -4,8 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Vendora.WPF.UserControls"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:helpers="clr-namespace:Vendora.WPF.Helpers" 
-             xmlns:controls="clr-namespace:Vendora.WPF.Helpers" xmlns:control="clr-namespace:Vendora.WPF" 
+             xmlns:controls="clr-namespace:Vendora.WPF.Helpers" 
+             xmlns:control="clr-namespace:Vendora.WPF" 
              xmlns:viewModel="clr-namespace:Vendora.WPF.ViewModels"
              mc:Ignorable="d" 
              Background="{StaticResource PrimaryBackground}"
@@ -19,7 +21,7 @@
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="120"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="20"/>
@@ -47,22 +49,25 @@
                     <TextBlock Grid.Column="0" Grid.Row="3" Text="Izox" Margin="10,3"/>
 
                     <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Orientation="Horizontal">
-                        <control:UserCalendar/>
+                        <Border Height="28" BorderThickness="0 0 0 1" BorderBrush="{DynamicResource OtherBorderColor}" >
+
+                            <control:UserCalendar x:Name="dateSupply" helpers:EnterKeyTraversal.IsEnabled="True"/>
+                        </Border>
                         <!--<local1:UserCalendar x:Name="dateSupply" Margin="5,5,5,2" SelectedDate="{Binding DateSupply, Mode=TwoWay}" Width="120" helpers:EnterKeyTraversal.IsEnabled="True"/>-->
-                        <TextBlock Text="Xujjat" Margin="10,5,5,2"/>
-                        <TextBox x:Name="docNumber" Text="{Binding DocNumber}" Margin="2,5,5,2" Width="128" helpers:EnterKeyTraversal.IsEnabled="True"/>
+                        <TextBlock Text="Xujjat №" Margin="10,5,5,2"/>
+                        <TextBox x:Name="docNumber" BorderThickness="0 0 0 1" Text="{Binding DocNumber}" md:TextFieldAssist.UnderlineBrush="Black" Margin="2,5,0,2" Width="130" helpers:EnterKeyTraversal.IsEnabled="True"/>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch">
-                        <ComboBox Text="{Binding SupplierName}" x:Name="supplierName" Margin="5,1" IsEditable="True" helpers:EnterKeyTraversal.IsEnabled="True"/>
+                        <ComboBox x:Name="supplierName"  Text="{Binding SupplierName}"  Margin="5,1" IsEditable="True" helpers:EnterKeyTraversal.IsEnabled="True" md:TextFieldAssist.UnderlineBrush="Black"/>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" Orientation="Horizontal">
-                        <ComboBox x:Name="currencyType" Text="{Binding CurrencyType}" Margin="5,1" IsEditable="True" Width="100" helpers:EnterKeyTraversal.IsEnabled="True"/>
+                        <ComboBox x:Name="currencyType" Text="{Binding CurrencyType}" Margin="5,1" IsEditable="True" Width="100" helpers:EnterKeyTraversal.IsEnabled="True" md:TextFieldAssist.UnderlineBrush="Black"/>
                         <TextBlock Text="Jami" Margin="2,3"  />
                         <TextBox x:Name="totalSum" Text="{Binding TotalSum, UpdateSourceTrigger=PropertyChanged,NotifyOnTargetUpdated=True}" Margin="3,1,5,1" Width="165" 
                              IsTabStop="False" IsReadOnly="True" HorizontalAlignment="Stretch" helpers:EnterKeyTraversal.IsEnabled="True"
-                             helpers:NumericTextBox.IsNumeric="True"/>
+                             helpers:NumericTextBox.IsNumeric="True" md:TextFieldAssist.UnderlineBrush="Black"/>
                     </StackPanel>
-                    <TextBox x:Name="info" Text="{Binding Info}" Grid.Column="1" Grid.Row="3" Margin="5,1" helpers:EnterKeyTraversal.IsEnabled="True"/>
+                    <TextBox x:Name="info" Text="{Binding Info}" Grid.Column="1" Grid.Row="3" Margin="5,1" helpers:EnterKeyTraversal.IsEnabled="True" md:TextFieldAssist.UnderlineBrush="Black"/>
                 </Grid>
             </Grid>
             <Grid Grid.Row="1">
@@ -84,13 +89,13 @@
                 <TextBlock Grid.Column="0" Text="Maxsulot turi" Margin="10,2" VerticalAlignment="Center" Foreground="#b0b9c6"
                        IsHitTestVisible="False" Panel.ZIndex="1"
                        Visibility="{Binding ElementName=typeGoods,Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
-                <ComboBox x:Name="typeGoods" Text="{Binding TypeGoods}" IsEditable="True" Grid.Column="0" Margin="5,2,2,2" VerticalContentAlignment="Center" helpers:EnterKeyTraversal.IsEnabled="True"/>
+                <ComboBox x:Name="typeGoods" Text="{Binding TypeGoods}" IsEditable="True" Grid.Column="0" Margin="5,2,2,2" VerticalContentAlignment="Center" helpers:EnterKeyTraversal.IsEnabled="True" md:TextFieldAssist.UnderlineBrush="Black"/>
                 <Button Grid.Column="1" Content="🆕" Margin="1" Padding="0" Width="40" Height="25" VerticalContentAlignment="Center" 
                     HorizontalContentAlignment="Center" IsTabStop="False" helpers:EnterKeyTraversal.IsEnabled="True"/>
                 <TextBlock Grid.Column="2" Text="Maxsulot nomi" Margin="10,2" VerticalAlignment="Center" Foreground="#b0b9c6"
                        IsHitTestVisible="False" Panel.ZIndex="1"
                        Visibility="{Binding ElementName=nameGoods,Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
-                <ComboBox x:Name="nameGoods" Text="{Binding NameGoods}" IsEditable="True" Grid.Column="2" Margin="2" VerticalContentAlignment="Center" helpers:EnterKeyTraversal.IsEnabled="True"/>
+                <ComboBox x:Name="nameGoods" Text="{Binding NameGoods}" IsEditable="True" Grid.Column="2" Margin="2" VerticalContentAlignment="Center" helpers:EnterKeyTraversal.IsEnabled="True" md:TextFieldAssist.UnderlineBrush="Black"/>
                 <Button Grid.Column="3" Content="🆕" Margin="1" Padding="0" Width="40" Height="25" VerticalContentAlignment="Center" 
                     HorizontalContentAlignment="Center" IsTabStop="False" helpers:EnterKeyTraversal.IsEnabled="True"/>
                 <TextBlock Grid.Column="4" Text="Miqdori" Margin="10,2" VerticalAlignment="Center" Foreground="#b0b9c6"
@@ -102,37 +107,37 @@
                        IsHitTestVisible="False" Panel.ZIndex="1"
                        Visibility="{Binding ElementName=unitGoods,Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
                 <TextBox x:Name="unitGoods" Text="{Binding UnitGoods}" Grid.Column="5" Margin="2" VerticalContentAlignment="Center" 
-                     helpers:EnterKeyTraversal.IsEnabled="True"/>
+                     helpers:EnterKeyTraversal.IsEnabled="True" md:TextFieldAssist.UnderlineBrush="Black"/>
                 <TextBlock Grid.Column="6" Text="Narxi" Margin="10,2" VerticalAlignment="Center" Foreground="#b0b9c6"
                        IsHitTestVisible="False" Panel.ZIndex="1"
                        Visibility="{Binding ElementName=priceGoods,Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
                 <TextBox x:Name="priceGoods" Text="{Binding PriceGoods}" Grid.Column="6" Margin="2,2,0,2" VerticalContentAlignment="Center" 
-                     helpers:EnterKeyTraversal.IsEnabled="True" helpers:NumericTextBox.IsNumeric="True"/>
+                     helpers:EnterKeyTraversal.IsEnabled="True" helpers:NumericTextBox.IsNumeric="True" md:TextFieldAssist.UnderlineBrush="Black"/>
                 <TextBlock Grid.Column="7" Text="QQS 12%" Margin="10,2" VerticalAlignment="Center" Foreground="#b0b9c6"
                        IsHitTestVisible="False" Panel.ZIndex="1"
                        Visibility="{Binding ElementName=rateVAT,Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
                 <TextBox x:Name="rateVAT" Text="{Binding RateVAT}" Grid.Column="7" Margin="2" VerticalContentAlignment="Center" 
-                     helpers:EnterKeyTraversal.IsEnabled="True" helpers:NumericTextBox.IsNumeric="True"/>
+                     helpers:EnterKeyTraversal.IsEnabled="True" helpers:NumericTextBox.IsNumeric="True" md:TextFieldAssist.UnderlineBrush="Black"/>
                 <TextBlock Grid.Column="8" Text="Narxi QQS bilan" Margin="10,2" VerticalAlignment="Center" Foreground="#b0b9c6"
                        IsHitTestVisible="False" Panel.ZIndex="1"
                        Visibility="{Binding ElementName=priceGoodsVAT,Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
                 <TextBox x:Name="priceGoodsVAT" Text="{Binding PriceGoodsVAT}" Grid.Column="8" Margin="2" VerticalContentAlignment="Center" 
-                     helpers:EnterKeyTraversal.IsEnabled="True" helpers:NumericTextBox.IsNumeric="True"/>
+                     helpers:EnterKeyTraversal.IsEnabled="True" helpers:NumericTextBox.IsNumeric="True" md:TextFieldAssist.UnderlineBrush="Black"/>
                 <TextBlock Grid.Column="9" Text="Jami Summa" Margin="10,2" VerticalAlignment="Center" Foreground="#b0b9c6"
                        IsHitTestVisible="False" Panel.ZIndex="1"
                        Visibility="{Binding ElementName=priceSum,Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
                 <TextBox x:Name="priceSum" Text="{Binding PriceSum,UpdateSourceTrigger=PropertyChanged}" Grid.Column="9" Margin="2" VerticalContentAlignment="Center" 
-                     helpers:EnterKeyTraversal.IsEnabled="True" helpers:NumericTextBox.IsNumeric="True"/>
+                     helpers:EnterKeyTraversal.IsEnabled="True" helpers:NumericTextBox.IsNumeric="True" md:TextFieldAssist.UnderlineBrush="Black"/>
                 <TextBlock Grid.Column="10" Text="Sotish Narxi" Margin="10,2" VerticalAlignment="Center" Foreground="#b0b9c6"
                        IsHitTestVisible="False" Panel.ZIndex="1"
                        Visibility="{Binding ElementName=priceSell,Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
                 <TextBox x:Name="priceSell" Text="{Binding PriceSell}" Grid.Column="10" Margin="2" VerticalContentAlignment="Center" 
-                     helpers:EnterKeyTraversal.IsEnabled="True" helpers:NumericTextBox.IsNumeric="True"/>
+                     helpers:EnterKeyTraversal.IsEnabled="True" helpers:NumericTextBox.IsNumeric="True" md:TextFieldAssist.UnderlineBrush="Black"/>
                 <TextBlock Grid.Column="11" Text="QQS bilan" Margin="10,2" VerticalAlignment="Center" Foreground="#b0b9c6"
                        IsHitTestVisible="False" Panel.ZIndex="1"
                        Visibility="{Binding ElementName=priceSellVAT,Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
                 <TextBox x:Name="priceSellVAT" Text="{Binding PriceSellVAT, UpdateSourceTrigger=PropertyChanged}" Grid.Column="11" Margin="2" VerticalContentAlignment="Center" 
-                     helpers:EnterKeyTraversal.IsEnabled="True" helpers:NumericTextBox.IsNumeric="True"/>
+                     helpers:EnterKeyTraversal.IsEnabled="True" helpers:NumericTextBox.IsNumeric="True" md:TextFieldAssist.UnderlineBrush="Black"/>
                 <Button Grid.Column="12" Content="🆗" Width="40" Height="25" Margin="2,2,5,2" Padding="0" VerticalContentAlignment="Center" 
                     HorizontalContentAlignment="Center" IsTabStop="True" Click="Button_Click" helpers:EnterKeyTraversal.IsEnabled="False"/>
             </Grid>

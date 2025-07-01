@@ -16,9 +16,6 @@ public class Product
     [JsonPropertyName("measureId")]
     public long MeasureId { get; set; }
     
-    [JsonPropertyName("quantity")]
-    public decimal Quantity { get; set; }
-    
     [JsonPropertyName("minStock")]
     public int MinStock { get; set; }
     
@@ -32,9 +29,9 @@ public class Product
     public DateTimeOffset CreatedAt { get; set; }
 
     [JsonPropertyName("updatedBy")]
-    public long UpdatedBy { get; set; }
+    public long? UpdatedBy { get; set; }
 
     [JsonPropertyName("updatedAt")]
-    public DateTimeOffset UpdatedAt { get; set; }
+    public DateTimeOffset? UpdatedAt { get; set; }
 
 }

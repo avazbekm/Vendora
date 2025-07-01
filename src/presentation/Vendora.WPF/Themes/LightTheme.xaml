@@ -13,6 +13,7 @@
     <SolidColorBrush x:Key="PrimaryBorderColor" Color="#DBEEDA"/>
     <SolidColorBrush x:Key="SecondaryBorderColor" Color="#1C3426"/>
     <SolidColorBrush x:Key="SelectedBorderColor" Color="#476072"/>
+    <SolidColorBrush x:Key="OtherBorderColor" Color="Black"/>
 
     <SolidColorBrush x:Key="PrimaryTextColor" Color="Black" />
     <SolidColorBrush x:Key="SecondaryTextColor" Color="Snow" />

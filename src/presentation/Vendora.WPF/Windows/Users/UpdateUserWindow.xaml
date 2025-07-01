@@ -1,4 +1,4 @@
-﻿<Window x:Class="Vendora.WPF.Windows.Users.AddUserWindow"
+﻿<Window x:Class="Vendora.WPF.Windows.Users.UpdateUserWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:Vendora.WPF.Windows.Users"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="AddUserWindow" Height="480" Width="800" 
-        WindowStartupLocation="CenterScreen" 
-        Background="Transparent"
-        ResizeMode="NoResize"
-        AllowsTransparency="True"
-        WindowStyle="None">
+       Title="AddUserWindow" Height="480" Width="800" 
+       WindowStartupLocation="CenterScreen" 
+       Background="Transparent"
+       ResizeMode="NoResize"
+       AllowsTransparency="True"
+       WindowStyle="None">
 
     <Grid x:Name="LayoutRoot">
         <Grid.ColumnDefinitions>
@@ -31,8 +31,8 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Rasm joylash" FontSize="15" Padding="50 5 10 5" Foreground="{DynamicResource PrimaryTextColor}"/>
                     <Button Content=". . ." Click="UploadImage_Click" Foreground="{DynamicResource PrimaryTextColor}"
-                        Background="{DynamicResource PrimaryBackground}" 
-                        BorderBrush="{DynamicResource PrimaryBackground}"/>
+                       Background="{DynamicResource PrimaryBackground}" 
+                       BorderBrush="{DynamicResource PrimaryBackground}"/>
                 </StackPanel>
 
 
@@ -47,77 +47,77 @@
         <!-- Right Panel -->
         <Border x:Name="RightPanel" Grid.Column="1" CornerRadius="0 30 30 0" Background="{DynamicResource SelectedBackground}">
             <StackPanel  Margin="40" Background="Transparent" >
-                    <!-- Familiya -->
-                    <StackPanel x:Name="spLastname" Orientation="Horizontal" Margin="0,10">
-                        <TextBlock x:Name="tbcLastName" Width="120" VerticalAlignment="Center">
-                            <Run Text="Familiya" FontSize="15" />
-                            <Run Text="*" Foreground="{DynamicResource SelectedTextColor }" FontSize="16"/>
-                        </TextBlock>
-                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
-                            <TextBox x:Name="txtLastName" KeyDown="TextBox_KeyDown" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 3" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent"/>
-                        </Border>
-                    </StackPanel>
+                <!-- Familiya -->
+                <StackPanel x:Name="spLastname" Orientation="Horizontal" Margin="0,10">
+                    <TextBlock x:Name="tbcLastName" Width="120" VerticalAlignment="Center">
+                           <Run Text="Familiya" FontSize="15" />
+                           <Run Text="*" Foreground="{DynamicResource SelectedTextColor }" FontSize="16"/>
+                    </TextBlock>
+                    <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                        <TextBox x:Name="txtLastName" KeyDown="TextBox_KeyDown" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 3" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent"/>
+                    </Border>
+                </StackPanel>
 
-                    <!-- Ismi -->
-                    <StackPanel x:Name="spFirstName" Orientation="Horizontal" Margin="0,10">
-                        <TextBlock x:Name="tbcFirstname" Width="120" VerticalAlignment="Center">
-                            <Run Text="Ismi" FontSize="15"/>
-                            <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16" />
-                        </TextBlock>
-                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
-                            <TextBox x:Name="txtFirstName" KeyDown="TextBox_KeyDown" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 3" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent"/>
-                        </Border>
-                    </StackPanel>
+                <!-- Ismi -->
+                <StackPanel x:Name="spFirstName" Orientation="Horizontal" Margin="0,10">
+                    <TextBlock x:Name="tbcFirstname" Width="120" VerticalAlignment="Center">
+                           <Run Text="Ismi" FontSize="15"/>
+                           <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16" />
+                    </TextBlock>
+                    <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                        <TextBox x:Name="txtFirstName" KeyDown="TextBox_KeyDown" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 3" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent"/>
+                    </Border>
+                </StackPanel>
 
-                    <!-- Jinsi -->
-                    <StackPanel x:Name="spGender" Orientation="Horizontal" Margin="0,10">
-                        <TextBlock x:Name="tbcGender" Width="120" VerticalAlignment="Center">
-                            <Run Text="Jinsi" FontSize="15" />
-                            <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16" />
-                        </TextBlock>
-                        <StackPanel Orientation="Horizontal">
-                            <RadioButton x:Name="rbMale" KeyDown="TextBox_KeyDown" Content="Erkak" Margin="0,0,10,0" GroupName="Gender"/>
-                            <RadioButton x:Name="rbFemale" KeyDown="TextBox_KeyDown" Content="Ayol" GroupName="Gender"/>
-                        </StackPanel>
+                <!-- Jinsi -->
+                <StackPanel x:Name="spGender" Orientation="Horizontal" Margin="0,10">
+                    <TextBlock x:Name="tbcGender" Width="120" VerticalAlignment="Center">
+                           <Run Text="Jinsi" FontSize="15" />
+                           <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16" />
+                    </TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton x:Name="rbMale" KeyDown="TextBox_KeyDown" Content="Erkak" Margin="0,0,10,0" GroupName="Gender"/>
+                        <RadioButton x:Name="rbFemale" KeyDown="TextBox_KeyDown" Content="Ayol" GroupName="Gender"/>
                     </StackPanel>
+                </StackPanel>
 
-                    <!-- Lavozim -->
-                    <StackPanel x:Name="spRole" Orientation="Horizontal" Margin="0,10">
-                        <TextBlock x:Name="tbcRole" Width="120" VerticalAlignment="Center">
-                            <Run Text="Lavozim" FontSize="15"/>
-                            <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16"/>
-                        </TextBlock>
-                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}" Width="200">
-                            <ComboBox x:Name="cbPosition" ItemsSource="{Binding Roles}" DisplayMemberPath="RoleName" KeyDown="TextBox_KeyDown" Width="195" Height="30" GotFocus="cbPosition_GotFocus" SelectionChanged="cbPosition_SelectionChanged" Background="Transparent" Padding="0 0 5 0" BorderThickness="0"/>
-                        </Border>
-                    </StackPanel>
+                <!-- Lavozim -->
+                <StackPanel x:Name="spRole" Orientation="Horizontal" Margin="0,10">
+                    <TextBlock x:Name="tbcRole" Width="120" VerticalAlignment="Center">
+                       <Run Text="Lavozim" FontSize="15"/>
+                       <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16"/>
+                    </TextBlock>
+                    <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}" Width="200">
+                        <ComboBox x:Name="cbPosition" KeyDown="TextBox_KeyDown" Width="195" Height="30" GotFocus="cbPosition_GotFocus" SelectionChanged="cbPosition_SelectionChanged" Background="Transparent" Padding="0 0 5 0" BorderThickness="0"/>
+                    </Border>
+                </StackPanel>
                 <!-- Telefon -->
-                    <StackPanel x:Name="spPhone" Orientation="Horizontal" Margin="0,10">
-                        <TextBlock x:Name="tbcPhone" Width="120" VerticalAlignment="Center">
-                            <Run Text="Telefon" FontSize="15"/>
-                            <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16"/>
-                        </TextBlock>
-                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
-                            <TextBox x:Name="txtPhone" KeyDown="TextBox_KeyDown" GotFocus="txtPhone_GotFocus" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 3" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent" TextChanged="txtPhone_TextChanged"/>
-                        </Border>
-                    </StackPanel>
+                <StackPanel x:Name="spPhone" Orientation="Horizontal" Margin="0,10">
+                    <TextBlock x:Name="tbcPhone" Width="120" VerticalAlignment="Center">
+                           <Run Text="Telefon" FontSize="15"/>
+                           <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16"/>
+                    </TextBlock>
+                    <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                        <TextBox x:Name="txtPhone" KeyDown="TextBox_KeyDown" GotFocus="txtPhone_GotFocus" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 3" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent" TextChanged="txtPhone_TextChanged"/>
+                    </Border>
+                </StackPanel>
 
-                    <!-- Login -->
-                    <StackPanel x:Name="spLogin" Orientation="Horizontal" Margin="0,10">
-                        <TextBlock x:Name="tbcLogin" Width="120" VerticalAlignment="Center">
-                            <Run Text="Login" FontSize="15" />
-                            <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16"/>
-                        </TextBlock>
-                        <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
-                            <TextBox x:Name="txtLogin" KeyDown="TextBox_KeyDown" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 3" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent"/>
-                        </Border>
-                    </StackPanel>
+                <!-- Login -->
+                <StackPanel x:Name="spLogin" Orientation="Horizontal" Margin="0,10">
+                    <TextBlock x:Name="tbcLogin" Width="120" VerticalAlignment="Center">
+                           <Run Text="Login" FontSize="15" />
+                           <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16"/>
+                    </TextBlock>
+                    <Border CornerRadius="7" Background="{DynamicResource AsGrayBackground}">
+                        <TextBox x:Name="txtLogin" KeyDown="TextBox_KeyDown" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Width="200" Padding="5 3" CaretBrush="Black" Height="30" BorderThickness="0" Background="Transparent"/>
+                    </Border>
+                </StackPanel>
 
-                    <!-- Parol -->
+                <!-- Parol -->
                 <StackPanel x:Name="spPassword" Orientation="Horizontal" Margin="0,10">
                     <TextBlock x:Name="tbcParol" Width="120" VerticalAlignment="Center">
-                    <Run Text="Parol" FontSize="15"/>
-                    <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16"/>
+                   <Run Text="Parol" FontSize="15"/>
+                   <Run Text="*" Foreground="{DynamicResource SelectedTextColor}" FontSize="16"/>
                     </TextBlock>
                     <Grid>
                         <!-- Berkitilgan PasswordBox -->
